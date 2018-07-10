@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title>Directly API Documentations</title>
+    <style>
+        html { font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+        body { margin: 0 }
+        article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block }
+        audio, canvas, progress, video { display: inline-block; vertical-align: baseline; }
+        audio:not([controls]) { display: none; height: 0; }
+        [hidden], template { display: none }
+        a { background: transparent }
+        a:active, a:hover { outline: 0 }
+        abbr[title] { border-bottom: 1px dotted }
+        b, strong { font-weight: bold }
+        dfn { font-style: italic }
+        h1 { font-size: 2em; margin: 0.67em 0; }
+        mark { background: #ff0; color: #000; }
+        small { font-size: 80% }
+        sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+        sup { top: -0.5em }
+        sub { bottom: -0.25em }
+        img { border: 0 }
+        svg:not(:root) { overflow: hidden }
+        figure { margin: 1em 40px }
+        hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
+        pre { overflow: auto }
+        code, kbd, pre, samp { font-family: monospace,monospace; font-size: 1em; }
+
+        body { background: #F9F9F5; font-size: 16px; line-height: 1.5; }
+        .content { width: 740px; margin: 0 auto; padding: 30px 0 60px; }
+
+        a { color: #069; }
+        a:hover { text-decoration: none; }
+        h1 { margin: 20px 0 10px; font-size: 36px; }
+        h2 { margin: 20px 0 10px; font-size: 30px; }
+        h3 { margin: 20px 0 10px; font-size: 24px; }
+        h4 { margin: 20px 0 10px; font-size: 18px; }
+        p { margin-bottom: 20px; }
+        ul { list-style-type: disc; list-style-position: inside; margin: 0 0 20px 10px; }
+        ul .separator { margin-bottom: 20px; }
+        pre, code { background: #fff; font-size: 12px; }
+        pre { white-space: pre; padding: 8px 12px; border-left: 3px solid #eee; }
+        code { padding: 2px 4px; }
+        h2 { border-bottom: 1px solid #c6c6c6;}
+        section { margin-bottom: 60px; }
+    </style>
+</head>
+
+<body>
+<section class="content">
+    <h1>Directly Help Desk API</h1>
+
+    <h2>Access</h2>
+    <section>
+        <p>
+            All help desk APIs require a valid Directly API token. After connecting Directly to your helpdesk, you can request an API token or invalidate and replace an existing token by clicking "Generate new token" in the Helpdesk Integration tab of your Directly admin panel.
+        </p>
+        <p>
+            Pass the API token as a parameter as described below or in a request header parameter as follows:<pre>ApiToken:YOUR-API-TOKEN</pre>
+        </p>
+    </section>
+    
+    <h2>Endpoints</h2>
+
+    <section>
+        <h3>Save Question</h3>
+        <p>Create a new question on Directly, associated with a specific help desk case/ticket ID.</p>
+
+        <h4>Request</h4>
+        <pre>POST https://[subdomain].directly.com/helpDesk/saveQuestion</pre>
+        <p>Note: subdomain will be provided by Directly.</p>
+
+        <h4>Parameters</h4>
+
+        <ul>
+            <li class="separator"><strong>text</strong> (required): detailed question description</li>
+            <li class="separator"><strong>helpDeskId</strong> (required): unique ID of the case/ticket</li>
+            <li class="separator"><strong>apiToken</strong> (required): Valid Directly API token. Not required if specified in header.</li>
+            <li class="separator"><strong>fullname</strong> (required): Display name to show for customer. If not present, a display name will be parsed from the email address</li>
+            <li class="separator"><strong>emailAddress</strong> (required): Question will be asked on behalf of customer with this email address</li>
+            <li class="separator"><strong>subject</strong> (optional): question subject (subject extracted from the text if not specified)</li>
+            <li class="separator"><strong>isEliteOnly</strong> (optional): with the value "on", the question will only be routed to elite experts</li>
+            <li class="separator"><strong>questionCategory</strong> (optional): Name of a category of questions.  These names and their associated settings must be negotiated with Directly separately.</li>
+            <li class="separator"><strong>metadata</strong> (optional): Map of metadata (name/value pairs) associated with the question.  It is included in help desk cases and available to Universal Connector actions.  Information in the top-level map is displayed to experts.  That in subordinate maps is not displayed to them.</li>
+            <li class="separator"><strong>rewardCategory</strong> (deprecated): Replaced with <code>questionCategory</code>.</li>
+        </ul>
+
+        <h4>Response</h4>
+        <pre>Status 200</pre>
+            <pre>{
+  "question": {
+    "id": 218312,
+    "url": "https://[subdomain].directly.com/p/subdomain-sample-question-detailed-description-218312",
+    "status": "0 answers",
+    "isEscalated": false,
+    "answers": []
+  }
+}</pre>
+
+        <h4>Error</h4>
+        <pre>Status 500</pre>
+
+        <h4>Sample</h4>
+            <pre>curl https://[subdomain].directly.com/helpDesk/saveQuestion \
+--header ApiToken:YOUR-API-TOKEN \
+--data "text=sample question detailed description" \
+--data emailAddress=user@example.com \
+--data "fullname=Joe User" \
+--data helpDeskId=123456789 \
+--data "metadata[Operating+System]=iOS+8.1" \
+--data "metadata[Browser]=Safari" \
+--data "metadata[Account][Creation Date]=2016-06-06 11:34:00" \
+--data "metadata[Account][Worth]=1000000"</pre>
+
+        In this example, experts will see the operating system and browser information,
+        but not the hidden account information.
+    </section>
+
+    <section>
+        <h3>Close Question</h3>
+        <p>Immediately close the Question in Directly, associated with a specific help desk case/ticket ID.</p>
+
+        <h4>Request</h4>
+        <pre>POST https://[subdomain].directly.com/helpDesk/closeQuestion</pre>
+        <p>Note: subdomain will be provided by Directly.</p>
+
+        <h4>Parameters</h4>
+
+        <ul>
+            <li class="separator"><strong>helpDeskId</strong> (required): unique ID of the case/ticket</li>
+            <li class="separator"><strong>apiToken</strong> (required): Valid Directly API token. Not required if specified in header.</li>
+        </ul>
+
+        <h4>Response</h4>
+        <pre>Status 200</pre>
+            <pre>{
+  "question": {
+    "id": 218312,
+    "url": "https://[subdomain].directly.com/p/subdomain-sample-question-detailed-description-218312",
+    "status": "CLOSED"
+  }
+}</pre>
+
+        <h4>Error</h4>
+        <pre>Status 500</pre>
+
+        <h4>Sample</h4>
+            <pre>curl https://[subdomain].directly.com/helpDesk/closeQuestion \
+--header ApiToken:YOUR-API-TOKEN \
+--data helpDeskId=123456789</pre>
+    </section>
+    
+</section>
+</body>
