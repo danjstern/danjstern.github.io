@@ -1,3 +1,7 @@
+body {
+    background-image: URL("https://danjstern.github.io/epic_support_files/fortnite_rtm_background.png")
+}
+
 .primary {
     display: -webkit-box;
     display: -ms-flexbox;
