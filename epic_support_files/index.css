@@ -100,9 +100,10 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     border-bottom: 1px solid #ECECEC;
     margin: 0 5vw 0 5vw;
+    margin: auto;
 }
 
 .leftContainer {
