@@ -30,6 +30,7 @@ body {
     display: -ms-flexbox;
     display: flex;
     width:40%;
+    color: #ff2598
 }
 
 .title {
