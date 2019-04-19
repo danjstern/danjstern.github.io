@@ -32,8 +32,8 @@ body {
             flex-direction: column;
     margin: 8em auto 0 auto;
     background: rgba(174,222,241,0.5);
-    border-radius: 5px;
-    -moz-border-radius: 5px;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border: 2px solid #1ab4fd;
     padding: 0 10px;
@@ -56,9 +56,8 @@ body {
 }
 
 .secondaryText {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    margin-bottom: 15px;
+    font-size: 16px;
 }
 
 .secondaryText h3 {
