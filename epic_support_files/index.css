@@ -194,8 +194,16 @@ body {
     margin: auto;
 }
 
-.xboxLogo {
-    height: 3.5em;
+.fortNiteLogo {
+    position: absolute;
+    left: 0;
+}
+
+.portal-title {
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: bold;
+    font-family: sans-serif;
 }
 
 .footer {
