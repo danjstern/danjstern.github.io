@@ -131,6 +131,9 @@ body {
         -ms-flex-align: center;
             align-items: center;
     width: 100%;
+    width: -webkit-calc(100% - 100px);
+    width:    -moz-calc(100% - 100px);
+    width:         calc(100% - 100px);
 }
 
 .rightContainer {
@@ -209,7 +212,7 @@ body {
 .footer {
     padding-top: 3em;
 }
-@media only screen and (min-width: 860px) {
+@media only screen and (min-width: 1000px) {
   .portal-title {
     display: block;
   }
