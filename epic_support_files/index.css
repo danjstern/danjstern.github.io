@@ -203,8 +203,14 @@ body {
     text-transform: uppercase;
     font-size: large;
     font-weight: bold;
+    display:none;
 }
 
 .footer {
     padding-top: 3em;
+}
+@media only screen and (min-width: 860px) {
+  .portal-title {
+    display: block;
+  }
 }
