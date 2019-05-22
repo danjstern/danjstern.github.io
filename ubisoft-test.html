@@ -7,9 +7,7 @@
     <script>
 
         function startDirectlyConversation() {
-        DirectlyRTM("onAskQuestion", function () {
-            window.location.href = '/directly.html';
-            });
+ 
 
         DirectlyRTM("set", "metadata", {
             platformId: 9
@@ -49,7 +47,6 @@
           "https://app.directly.com/widgets/rtm/embed.js");
                 DirectlyRTM("config", {
                     id: "2c9985936a90a366016a9dc533687098",
-                    displayAskQuestion: true,
                     disableAskNewQuestionFromUi: true
                 });
           </script>
