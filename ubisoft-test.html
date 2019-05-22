@@ -17,7 +17,10 @@
         DirectlyRTM("askQuestion", {
             questionText: 'test from directly.html',
             name: 'Shuang',
-            email: 'xax@yeah.net'
+            email: 'xax@yeah.net',
+            metadata: {
+               platformId: 9
+            }
         });
 
 
@@ -49,10 +52,7 @@
           "https://app.directly.com/widgets/rtm/embed.js");
                 DirectlyRTM("config", {
                     id: "2c9985936a90a366016a9dc533687098",
-                    disableAskNewQuestionFromUi: true,
-                    metadata: {
-                        platformId: 9
-                    }
+                    disableAskNewQuestionFromUi: true
                 });
           </script>
 </body>
