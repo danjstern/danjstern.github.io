@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="shortcut icon" type="png" href="img/logo.png">
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AT&amp;T</title>
+  <script id="directlyRTMScript" src="https://app.directly.com/widgets/rtm/embed.js" async=""></script>
+  <link type="text/css" rel="stylesheet" crossorigin="anonymous" href="https://app.directly.com/widgets/rtm/style.css?v=9b8822634d605d76ce72">
+</head>
+
+<body>
+  <div class="primary">
+    <!-- Navbar -->
+    <div class="header">
+      <div class="wrapper">
+        <img class="logo" src="img/logo.png" alt="AT&amp;T logo">
+      </div>
+    </div>
+    <div class="wrapper content">
+      <h1>You're now talking with an AT&amp;T Expert!</h1>
+      <h2>Experts are very experienced and can provide helpful, fast answers to most questions.</h2>
+    </div>
+  </div>
+
+  <script src="js/url-search-params-polyfill.js"></script>
+  <script>
+    (function(d, i, r, e, c, t, l, y) {
+      i[r] = i[r] || function() {
+        (i[r].cq = i[r].cq || []).push(arguments)
+      };
+      l = d.createElement("script");
+      l.id = "directlyRTMScript";
+      l.src = e;
+      l.async = 1;
+      y = d.head || d.getElementsByTagName("head")[0];
+      if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+        y.appendChild(l);
+      } else if (i.addEventListener) {
+        i.addEventListener("DOMContentLoaded", function() {
+          y.appendChild(l);
+        });
+      } else {
+        i.attachEvent("onload", function() {
+          y.appendChild(l);
+        });
+      }
+    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+
+    (function() {
+      var mapIntentsToQuestionText = {
+        "block-ios": "How do I block calls/text IOS?",
+        "block-non-ios": "How do I block calls/text Non IOS?",
+        "use-phone": "How do I use my phone?",
+        "transfer-contacts": "I need to transfer my contacts to my new phone",
+        "phone-hotspot": "How do I use my phone as a HotSpot?",
+      };
+      var queryParams = new URLSearchParams(window.location.search);
+      var questionText = queryParams.has("intent") && mapIntentsToQuestionText[queryParams.get("intent")];
+
+
+      DirectlyRTM("config", {
+                  questionText: questionText,
+                  id: "2c99829d69ebb4bc0169ff61dcc867d0",
+                  i18n: {
+                      en: {
+                          label: {
+                              email_or_phone: "Phone number",
+                          },
+                          placeholder: {
+                              type_your_email_or_phone: "Type your phone number here...",
+                          },
+                      },
+                  },
+              });
+      DirectlyRTM("onReady", function() {
+        if (questionText) {
+          DirectlyRTM("askQuestion", {
+            questionText: questionText
+          });
+        } else {
+          DirectlyRTM("maximize");
+        }
+      });
+    })();
+  </script>
+</body>
+
+</html>
