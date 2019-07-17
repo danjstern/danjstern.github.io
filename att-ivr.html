@@ -53,40 +53,50 @@
     })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
 
     (function() {
-      var mapIntentsToQuestionText = {
-        "block-ios": "How do I block calls/text IOS?",
-        "block-non-ios": "How do I block calls/text Non IOS?",
-        "use-phone": "How do I use my phone?",
-        "transfer-contacts": "I need to transfer my contacts to my new phone",
-        "phone-hotspot": "How do I use my phone as a HotSpot?",
-      };
-      var queryParams = new URLSearchParams(window.location.search);
-      var questionText = queryParams.has("intent") && mapIntentsToQuestionText[queryParams.get("intent")];
+        var mapIntentsToQuestionText = {
+          "block-ios": "How do I block calls/text IOS?",
+          "block-non-ios": "How do I block calls/text Non IOS?",
+          "use-phone": "How do I use my phone?",
+          "transfer-contacts": "I need to transfer my contacts to my new phone",
+          "phone-hotspot": "How do I use my phone as a HotSpot?",
+        };
+        var mapIntentsToPlaceHolderText = {
+          "block-ios": "What question do you have about blocking calls or text?",
+          "block-non-ios": "What question do you have about blocking calls or text?",
+          "use-phone": "What question do you have about your phone?",
+          "transfer-contacts": "How can we help you transfer your contacts?",
+          "phone-hotspot": "What question do you have about using your phone as a hotspot?",
+        };
+
+        var queryParams = new URLSearchParams(window.location.search);
+        var questionText = queryParams.has("intent") && mapIntentsToQuestionText[queryParams.get("intent")];
+        var placeHolderText = queryParams.has("intent") && mapIntentsToPlaceHolderText[queryParams.get("intent")];
 
 
-      DirectlyRTM("config", {
-                  questionText: questionText,
-                  id: "2c99829d69ebb4bc0169ff61dcc867d0",
-                  i18n: {
-                      en: {
-                          label: {
-                              email_or_phone: "Phone number",
-                          },
-                          placeholder: {
-                              type_your_email_or_phone: "Type your phone number here...",
-                          },
-                      },
-                  },
+        DirectlyRTM("config", {
+          questionText: questionText,
+          id: "2c99829d69ebb4bc0169ff61dcc867d0",
+          i18n: {
+            en: {
+              label: {
+                email_or_phone: "Phone number",
+              },
+              placeholder: {
+                type_your_email_or_phone: "Type your phone number here...",
+                how_can_we_help: "",
+              },
+            },
+          },
+        });
+        DirectlyRTM("onReady", function() {
+            if (questionText) {
+              DirectlyRTM("set", "metadata", {
+                  IVR_Selection: queryParams.get("intent")
+                }
               });
-      DirectlyRTM("onReady", function() {
-        if (questionText && false) {
-          DirectlyRTM("askQuestion", {
-            questionText: questionText
-          });
-        } else {
+          }
           DirectlyRTM("maximize");
-        }
-      });
+        });
     })();
   </script>
 </body>
