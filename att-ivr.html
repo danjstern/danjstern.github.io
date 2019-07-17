@@ -91,10 +91,9 @@
         DirectlyRTM("onReady", function() {
             if (questionText) {
               DirectlyRTM("set", "metadata", {
-                  IVR_Selection: queryParams.get("intent")
+                  IVR_Selection: queryParams.get("intent"),
                 }
-              });
-          }
+              }
           DirectlyRTM("maximize");
         });
     })();
