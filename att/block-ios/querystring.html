@@ -18,6 +18,7 @@
             </div>
         </div>
         <div class="wrapper content">
+            <h1>IVR Sandbox</h1>
             <h1>You're now talking with an AT&amp;T Expert!</h1>
             <h2>Experts are very experienced and can provide helpful, fast answers to most questions.</h2>
         </div>
@@ -52,7 +53,7 @@
             var queryParams = new URLSearchParams(window.location.search);
             var questionText = queryParams.has("intent") && mapIntentsToQuestionText[queryParams.get("intent")];
 
-            DirectlyRTM("config", { id: "2c9985936aaf14a1016ab1c067f53100" });
+            DirectlyRTM("config", { id: "3c9985936aaf14a1016ab1c067f53100" });
             DirectlyRTM("onReady", function() {
                 if (questionText) {
                     DirectlyRTM("askQuestion", {
