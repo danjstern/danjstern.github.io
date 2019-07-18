@@ -55,15 +55,26 @@
 
             DirectlyRTM("config", { id: "3c9985936aaf14a1016ab1c067f53100" });
             DirectlyRTM("onReady", function() {
-                if (questionText) {
+                
+                DirectlyRTM("getState", function(params) {
+
+                
+                
+                if (params.session) {
+                    DirectlyRTM("maximize");
+                } else {
                     DirectlyRTM("askQuestion", {
                         phone: "8583244405",
                         name: "customer",
-                        questionText: questionText,
+                        questionText: "How do I block calls/text IOS?",
                     });
-                } else {
-                    DirectlyRTM("maximize");
                 }
+                
+                });
+
+
+                
+                
             });
         })();
     </script>
