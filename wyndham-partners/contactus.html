@@ -1,11 +1,26 @@
 <html>
+
 <head>
 </head>
+
 <body>
   <form action="rtm.html" method="post">
     First name: <input type="text" name="fname"><br>
-Last name: <input type="text" name="lname"><br>
-<input type="submit" value="Submit">
+    Last name: <input type="text" name="lname"><br>
+    <input type="submit" value="Submit">
   </form>
+  <div id="directlyform">
+        First name: <input type="text" name="email" id="form-email"><br>
+    <input type="submit" onclick="return saveData();" value="OK" />
+  </div>
+  <script type="text/javascript">
+    function savedata() {
+      var input = document.getElementById("form-email");
+      sessionStorage.setItem("form-email", input.value);
+      window.location("rtm.html");
+      return true;
+    }
+  </script>
 </body>
+
 </html>
