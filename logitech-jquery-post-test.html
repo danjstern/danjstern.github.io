@@ -1,0 +1,25 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $( document ).ready(function() {
+    const pr_url = '';
+    const data = {
+    "language": "en",
+    "text": "Unable to connect my wireless m570 trackball followsup",
+    "questionCategory": "very_descriptive_category",
+    "metadata": { }
+    }
+    $('.btn').click(function(){
+      $.post(pr_url,data, function(data, status){
+        console.log(`${data} and status is ${status}`)
+      })
+    })
+  });
+
+    </script>
+</head>
+<body>
+  <input type="submit" class="btn" value="value">hello</input>
+</body>
+</html>
