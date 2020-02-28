@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NortonLifeLock RTM Test Page</title>
+</head>
+<body>
+NortonLifeLock RTM Sandbox Test Page
+    <form id="testdata">
+    <label for="name">name:</label>
+<input type="text" id="name" name="name" value="Test Customer"><br><br>
+<label for="email">email:</label>
+<input type="text" id="email" name="email" value="test@danjstern.com"><br><br>
+<label for="question">question:</label>
+<input type="text" id="question" name="question" value="Quick test question."><br><br>
+<label for="sfdcId">salesforce case id:</label>
+<input type="text" id="sfdcId" name="sfdcId" value="1234"><br><br>
+<label for="sfdcId">salesforce case #:</label>
+<input type="text" id="sfdcNum" name="sfdcNum"><br><br>
+<button onclick="directlyAskQuestion(); return false;">Chat Now</button>
+
+    </form>
+
+    <script>
+        (function(d, i, r, e, c, t, l, y) {
+            i[r] = i[r] || function() {
+                (i[r].cq = i[r].cq || []).push(arguments)
+            };
+            l = d.createElement("script");
+            l.id = "directlyRTMScript";
+            l.src = e;
+            l.async = 1;
+            y = d.head || d.getElementsByTagName("head")[0];
+            if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+                y.appendChild(l);
+            } else if (i.addEventListener) {
+                i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+            } else {
+                i.attachEvent("onload", function() { y.appendChild(l); });
+            }
+        })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+        DirectlyRTM("config", {
+            id: "2c99829d7051d030017079d92b3f3a34",
+            displayAskQuestion: false
+        });
+
+        function directlyAskQuestion() {
+          console.log("directlyAskQuestion run");
+            DirectlyRTM("askQuestion", {
+                questionText: document.getElementById("question").value,
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                metadata: {
+                  system: {
+                    salesforceCaseId: document.getElementById("sfdcId").value,
+                    salesforceCaseNum: document.getElementById("sfdcNum").value
+                  }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
