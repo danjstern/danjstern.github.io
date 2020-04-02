@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NortonLifeLock RTM Test Page</title>
+</head>
+<body>
+NortonLifeLock RTM Production Test Page
+    <form id="testdata">
+    <label for="name">name:</label>
+<input type="text" id="name" name="name" value="Test Customer"><br><br>
+<label for="email">email:</label>
+<input type="text" id="email" name="email" value="test@danjstern.com"><br><br>
+<label for="question">question:</label>
+<input type="text" id="question" name="question" value="Quick test question."><br><br>
+<label for="topic">topic:</label>
+<input type="text" id="topic" name="topic" value="Norton Security for Windows"><br><br>
+<label for="category">Category Dropdown:</label>
+<input type="text" id="category" name="category" value="Download & Install"><br><br>
+<label for="sfdcId">salesforce case #:</label>
+<input type="text" id="sfdcNum" name="sfdcNum"><br><br>
+<label for="moxieLink">moxieChatUrl:</label>
+<input type="text" id="moxieLink" name="moxieLink" value="https://moxie.com"><br><br>
+<label for="useragent">user agent:</label>
+<input type="text" id="useragent" name="useragent" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36"><br><br>
+<button onclick="directlyAskQuestion(); return false;">Chat Now</button>
+
+    </form>
+
+    <script>
+        (function(d, i, r, e, c, t, l, y) {
+            i[r] = i[r] || function() {
+                (i[r].cq = i[r].cq || []).push(arguments)
+            };
+            l = d.createElement("script");
+            l.id = "directlyRTMScript";
+            l.src = e;
+            l.async = 1;
+            y = d.head || d.getElementsByTagName("head")[0];
+            if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+                y.appendChild(l);
+            } else if (i.addEventListener) {
+                i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+            } else {
+                i.attachEvent("onload", function() { y.appendChild(l); });
+            }
+        })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+        DirectlyRTM("config", {
+            id: "2c9983b770f4b5d80170f52060e81f5e",
+            displayAskQuestion: false
+        });
+
+        function directlyAskQuestion() {
+          console.log("directlyAskQuestion run");
+            DirectlyRTM("askQuestion", {
+                questionText: document.getElementById("question").value,
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                metadata: {
+                    category: document.getElementById("category").value,
+                    device_os: document.getElementById("useragent").value,
+                    topic: document.getElementById("topic").value,
+                    refferring_page: "https://support.norton.com/sp/en/us/home/current/contact-chat?at_preview_index=1_2&at_preview_listed_activities_only=true&at_preview_token=2iNQfvpV825hR7C944SOhQ%3D%3D",
+                  system: {
+                    moxieChatUrl: document.getElementById("moxieLink").value,
+                    salesforceCaseNum: document.getElementById("sfdcNum").value
+                  }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
