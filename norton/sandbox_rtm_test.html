@@ -46,8 +46,27 @@ NortonLifeLock RTM Sandbox Test Page
         })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
         DirectlyRTM("config", {
             id: "2c99829d7051d030017079d92b3f3a34",
-            displayAskQuestion: false
-        });
+            displayAskQuestion: false,
+                            i18n: {
+                    en: {
+                      button: {
+                        ask_our_experts: "Ask a question",
+                      },
+                      header: {
+                          notifying_experts: "Notifying Norton Peer Advisor...",
+                      },
+                      text: {
+                          company_expert: "Norton Peer Advisor",
+                          response_time: "The last question took a <span>Norton<\/span> Peer Advisor <span>{{lastResponseTime}}<\/span> to answer.",
+                          did_that_answer_your_question: "Did that answer your question? If not, we will connect you to a peer advisor.",
+                          expert: "peer advisor",
+                          here_a_recent_answer_similar_question: "Here's a recent answer to a similar question. If you still need help, let us know and we will connect you with a peer advisor.",
+                          response_time_help: "Peer Advisors have been chosen to help answer questions.",
+                          we_are_notifiying_our_experts: "We're notifying top peer advisors.",
+                      },
+                    },
+                },
+            });
 
         function directlyAskQuestion() {
           console.log("directlyAskQuestion run");
