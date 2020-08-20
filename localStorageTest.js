@@ -8,3 +8,10 @@ catch(err) {
   console.log("No Access to Local Storage");
 }
 }
+
+try {
+testLocalStorage();
+}
+catch(err) {
+  console.log("Error Running Function");
+}
