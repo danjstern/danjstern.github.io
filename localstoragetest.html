@@ -1,0 +1,30 @@
+<html>
+<head>
+  <script src="https://danjstern.github.io/localStorageTest.js"></script>
+  <style>
+    body {
+    background: #F6F9FC;
+    }
+    </style>
+</head>
+<body>
+<h1>LocalStorageTest</h1>
+
+<a href="javascript:testLocalStorage2();">Test Local Storage Embedded JS</a></br></br>
+<a href="javascript:testLocalStorage();">Test Local Storage from Include</a>
+<script>
+function testLocalStorage2() {
+  try {
+    localStorage.setItem('DirectlyLocalStorage', 'True');
+const testLocalStorage = window.localStorage;
+console.log(testLocalStorage);
+}
+catch(err) {
+  console.log("No Access to Local Storage");
+}
+}
+
+</script>
+
+</body>
+</html>
