@@ -1,5 +1,12 @@
 <html>
-<body>
+<head>
+  <script>
+  function resizeVideo() {
+document.getElementById("stickoftruth").height = window.innerWidth/1391*782;
+}
+  </script>
+</head>
+<body onresize="resizeVideo();" onload="resizeVideo();">
   <span style="
       background: black;
       color: white;
@@ -8,6 +15,8 @@
       font-family: sans-serif;
       padding: 3px;
   ">Mt Bachelor Snow Stake</span><img style="-webkit-user-select: none;margin: auto;width:100%;" src="https://mtbachelor.powdr-dev.com/api/v1/cams/mtn/14">
-<iframe width="1391" height="782" src="https://www.youtube.com/embed/e-5kXgDhDM8?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
+<iframe id="stickoftruth" width="100%" height="782" src="https://www.youtube.com/embed/e-5kXgDhDM8?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
+<script>
+</script>
 </body>
 </html>
