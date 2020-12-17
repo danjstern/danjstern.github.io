@@ -1,22 +1,35 @@
 <html>
 <head>
   <script>
-  function resizeVideo() {
-document.getElementById("stickoftruth").height = window.innerWidth/1391*782;
-}
+    function resizeVideo() {
+      document.getElementById("stickoftruth").height = window.innerWidth / 1391 * 782;
+    }
+    function setScaleVisibility() {
+      if (sessionStorage.getItem('showscale') === 'block') {
+        document.getElementById("bachelor-scale").style.display = 'block';
+      }
+    }
+    function toggleScale() {
+      var x = document.getElementById('bachelor-scale');
+      if (x.style.display === 'none') {
+        x.style.display = 'block';
+        sessionStorage.setItem('showscale', 'block');
+      } else {
+        x.style.display = 'none';
+        sessionStorage.setItem('showscale', 'none');
+      }
+    }
   </script>
 </head>
-<body onresize="resizeVideo();" onload="resizeVideo();">
-  <span style="
-      background: black;
-      color: white;
-      position: absolute;
-      font-size: 115%;
-      font-family: sans-serif;
-      padding: 3px;
-  ">Mt Bachelor Snow Stake</span><img style="-webkit-user-select: none;margin: auto;width:100%;" src="https://mtbachelor.powdr-dev.com/api/v1/cams/mtn/14">
-<iframe id="stickoftruth" width="100%" height="782" src="https://www.youtube.com/embed/e-5kXgDhDM8?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen allow="autoplay"></iframe>
-<script>
-</script>
+<body onresize="resizeVideo();" onload="resizeVideo();setScaleVisibility();">
+  <span style="background: black;color: white;position: absolute;font-size: 115%;font-family: sans-serif;padding: 3px;">Mt Bachelor Snow Stake</span>
+  <span onclick="toggleScale()" style="z-index:99;background: black; color: white; position: absolute; font-size: 115%; font-family: sans-serif; padding: 3px; right: 14px; top: 10;">Toggle Scale
+  </span>
+  <img style="-webkit-user-select: none;margin: auto;width:100%;" src="https://mtbachelor.powdr-dev.com/api/v1/cams/mtn/14">
+  <img id="bachelor-scale" style="display:none;-webkit-user-select: none;margin: auto;width:100%;position: absolute;top: 0;" src="https://danjstern.github.io/img/snowstake-scale.png">
+  <iframe id="stickoftruth" width="100%" height="782" src="https://www.youtube.com/embed/e-5kXgDhDM8?autoplay=1&mute=1&enablejsapi=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen allow="autoplay"></iframe>
+  <script>
+  </script>
 </body>
 </html>
