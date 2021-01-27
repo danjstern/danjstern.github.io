@@ -1,37 +1,48 @@
 <html>
 
 <body>
-  <h1>SAP Sandbox - Dan Test</h1>
-<script>
+  <h1>SAP Sandbox - Dan Testing</h1>
+  <script>
     (function(d, i, r, e, c, t, l, y) {
-        i[r] = i[r] || function () {
-            (i[r].cq = i[r].cq || []).push(arguments)
-        };
-        l = d.createElement("script");
-        l.id = "directlyRTMScript";
-        l.src = e;
-        l.async = 1;
-        y = d.head || d.getElementsByTagName("head")[0];
-        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
-            y.appendChild(l);
-        } else if (i.addEventListener) {
-            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
-        } else {
-            i.attachEvent("onload", function() { y.appendChild(l); });
-        }
+      i[r] = i[r] || function() {
+        (i[r].cq = i[r].cq || []).push(arguments)
+      };
+      l = d.createElement("script");
+      l.id = "directlyRTMScript";
+      l.src = e;
+      l.async = 1;
+      y = d.head || d.getElementsByTagName("head")[0];
+      if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+        y.appendChild(l);
+      } else if (i.addEventListener) {
+        i.addEventListener("DOMContentLoaded", function() {
+          y.appendChild(l);
+        });
+      } else {
+        i.attachEvent("onload", function() {
+          y.appendChild(l);
+        });
+      }
     })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{id: "2c9982fa7737c57b017745491b315e3f" });
-    DirectlyRTM("onSolved", function(solvedData) {
-      console.log("onSolved Triggered");
-      console.log(solvedData);
+    DirectlyRTM("config", {
+      id: "2c9982fa7737c57b017745491b315e3f"
     });
-    DirectlyRTM("onRerouted", function(rerouteData) {
-      console.log("onRerouted Triggered");
-      console.log(rerouteData);
-    });
-    DirectlyRTM("onRejected", function(rejectionData) {
-      console.log("onRejected Triggered");
-      console.log(rejectionData);
+
+    DirectlyRTM("onReady", function() {
+      DirectlyRTM("maximize");
+      DirectlyRTM("onSolved", function(solvedData) {
+        console.log("onSolved Triggered");
+        console.log(solvedData);
+      });
+      DirectlyRTM("onRerouted", function(rerouteData) {
+        console.log("onRerouted Triggered");
+        console.log(rerouteData);
+      });
+      DirectlyRTM("onRejected", function(rejectionData) {
+        console.log("onRejected Triggered");
+        console.log(rejectionData);
+      });
+
     });
   </script>
 </body>
