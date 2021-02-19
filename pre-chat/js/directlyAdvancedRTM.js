@@ -274,7 +274,7 @@ if (!document.getElementById(cssId))
    link.crossorigin = 'anonymous';
    link.rel  = 'stylesheet';
    link.type = 'text/css';
-   link.href = '/css/directlyAdvancedRTM.css';
+   link.href = 'css/directlyAdvancedRTM.css';
    link.media = 'all';
    head.appendChild(link);
 }
