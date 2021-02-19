@@ -88,7 +88,7 @@ let preChatForm = {preChatForm:{
       default: navigator.language
     },
   ]
-}
+}}
 var directlyUtilities = {
   formId(agentFieldName) {
     return agentFieldName.toLowerCase().replace(/[ ]/gi, '_').replace(/[^0-9a-z_]/gi, '');
