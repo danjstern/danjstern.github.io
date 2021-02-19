@@ -1,0 +1,111 @@
+<html>
+<head>
+  <script src="/js/directlyAdvancedRTM.js"></script>
+</head>
+<body>
+<h1>Husqvarna Pre Chat Test Platform</h1>
+<h2>Questions connected to dstern-sandbox</h2>
+<script>
+directlyPreChatRTM.init("2c99831876efa8580176f8406c3c2942", {preChatForm:{
+  contactType: "email", //email or phone
+  nameLabel: "Name",
+  namePlaceHolder: "Enter your first name here",
+  contactMethodLabel: "Email Address",
+  contactMethodPlaceHolder: "Enter you email email address here",
+  questionLabel: "Your Question",
+  questionPlaceHolder: "How can we help?",
+  title: "How can we help you?",
+  submitBtnLabel: "Ask our Experts",
+  validationRequiredField: "required",
+  validationInvalidFormat: "invalid value",
+  extendedFields: [
+    {
+      id: "Category",
+      folder: "public",
+      type: "drop-down",
+      label: "Question Category",
+      placeholder: "Please select a category",
+      required: true,
+      options: [{
+        label: "Automower",
+        value: "Automower"
+      }, {
+        label: "Zeroturn",
+        value: "Zeroturn"
+      }, {
+        label: "Riding Mower",
+        value: "Riding Mower"
+      }, {
+        label: "Walk behind Mower",
+        value: "Walk behind Mower"
+      }, {
+        label: "Chainsaw",
+        value: "Chainsaw"
+      }, {
+        label: "Polesaw",
+        value: "Polesaw"
+      }, {
+        label: "Trimmer",
+        value: "Trimmer"
+      }, {
+        label: "Brushcutter",
+        value: "Brushcutter"
+      }, {
+        label: "Hedge trimmer",
+        value: "Hedge trimmer"
+      }, {
+        label: "Other",
+        value: "Other"
+      }],
+      default: "" //drop-down defaults should be the value, not the label
+    },
+    {
+      id: "Referring Page",
+      folder: "browser data",
+      type: "hidden",
+      label: "Referring Page",
+      required: true,
+      default: window.location.href
+    },
+    {
+      id: "timezone",
+      folder: "browser data",
+      type: "hidden",
+      label: "Time Zone",
+      required: true,
+      default: new Date().toString().match(/\(([A-Za-z\s].*)\)/)[1]
+    },
+    {
+      id: "language",
+      folder: "browser data",
+      type: "hidden",
+      label: "Language",
+      required: true,
+      default: navigator.language
+    },
+  ]
+
+}});
+/*
+    (function(d, i, r, e, c, t, l, y) {
+        i[r] = i[r] || function () {
+            (i[r].cq = i[r].cq || []).push(arguments)
+        };
+        l = d.createElement("script");
+        l.id = "directlyRTMScript";
+        l.src = e;
+        l.async = 1;
+        y = d.head || d.getElementsByTagName("head")[0];
+        if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+            y.appendChild(l);
+        } else if (i.addEventListener) {
+            i.addEventListener("DOMContentLoaded", function() { y.appendChild(l); });
+        } else {
+            i.attachEvent("onload", function() { y.appendChild(l); });
+        }
+    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+    DirectlyRTM("config",{id: "2c99831876efa8580176f8406c3c2942" });
+    */
+</script>
+</body>
+</html>
