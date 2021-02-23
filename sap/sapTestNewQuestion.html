@@ -1,0 +1,112 @@
+<html>
+
+<head>
+  <style>
+    .directly-rtm.is-ask-form {
+      display: none;
+    }
+    input {
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <H1>SAP-Sandbox Test Page (connected to SAP-sandbox)</H1>
+
+  <form id="testForm">
+    <label for="name">name:</label><br>
+    <input type="text" id="name" name="name" value="John Doe"><br>
+    <label for="email">email:</label><br>
+    <input type="email" id="email" name="email" value="dan+sapjohndoe@danjstern.com"><br>
+    <label for="question">question:</label><br>
+    <input type="text" id="question" name="question" value="This is a new question"><br><br>
+    <input type="button" id="submitBtn" onclick="testAskQuestion(this.form);return false;" value="Ask Question">
+  </form>
+
+  <script>
+    //Set global Directly Variables
+    let rtmTokenID = '2c99829d75f87bc701762b6b75a03bdd'; //sap-sandbox
+//    let rtmTokenID = '2c99831876efa8580176f8406c3c2942'; //dstern-sandbox
+    let directlySessionReset = false;
+    let newQuestionObj = null;
+    //Initial Load of Directly
+    (function(d, i, r, e, c, t, l, y) {
+      i[r] = i[r] || function() {
+        (i[r].cq = i[r].cq || []).push(arguments)
+      };
+      l = d.createElement("script");
+      l.id = "directlyRTMScript";
+      l.src = e;
+      l.async = 1;
+      y = d.head || d.getElementsByTagName("head")[0];
+      if (d.readyState === "complete" || d.readyState === "loaded" || d.readyState === "interactive") {
+        y.appendChild(l);
+      } else if (i.addEventListener) {
+        i.addEventListener("DOMContentLoaded", function() {
+          y.appendChild(l);
+        });
+      } else {
+        i.attachEvent("onload", function() {
+          y.appendChild(l);
+        });
+      }
+    })(document, window, "DirectlyRTM", "https://app.directly.com/widgets/rtm/embed.js");
+    DirectlyRTM("config", {
+      id: rtmTokenID
+    });
+    //Add onReady event to ask newQuestion if global variable is set
+    DirectlyRTM("onReady", function() {
+      console.log("onReady");
+      if (newQuestionObj) {
+        DirectlyRTM("askQuestion", newQuestionObj);
+        newQuestionObj = null;
+      }
+    });
+    //Add onNavigate event to clear session on navigate to ask form.  Must navigate to ask form in order to stop heartbeat
+    DirectlyRTM("onNavigate", function(path) {
+      if (path.path == "/ask" && directlySessionReset) {
+        directlySessionReset = false;
+        DirectlyRTM("logout");
+        //wait for logout to complete and remove existing widget
+        setTimeout(function() {
+          let directlyInstances = document.getElementsByClassName("directly-rtm");
+          for (let i = 0; i < directlyInstances.length; i++) {
+            directlyInstances[i].remove();
+          }
+          //Create new session widget to clear old tokens
+          setTimeout(function() {
+            DirectlyRTM("config", {
+              id: rtmTokenID
+            });
+          }, 200);
+        }, 500);
+      }
+    });
+
+    function askInNewSession(questionObj) {
+      //set global variable for question
+      newQuestionObj = questionObj;
+      //set global variable for onNavigate event
+      directlySessionReset = true;
+      //navigate to ask form to stop heartbeat
+      DirectlyRTM("navigate", "/ask");
+    }
+
+
+    function testAskQuestion(currForm) {
+      console.log(currForm);
+      let askObj = {
+        questionText: currForm.question.value,
+        name: currForm.name.value,
+        email: currForm.email.value
+      };
+      console.log('======testAskQuestion========');
+      console.log(askObj);
+      askInNewSession(askObj);
+     return false;
+    }
+  </script>
+</body>
+
+</html>
