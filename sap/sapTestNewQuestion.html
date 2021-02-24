@@ -5,6 +5,7 @@
     .directly-rtm.is-ask-form {
       display: none;
     }
+
     input {
       width: 300px;
     }
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-  <H1>SAP-Sandbox Test Page (connected to SAP-sandbox)</H1>
+  <H1>SAP-Sandbox Test Page (connected to dstern-sandbox)</H1>
 
   <form id="testForm">
     <label for="name">name:</label><br>
@@ -27,7 +28,7 @@
   <script>
     //Set global Directly Variables
     let rtmTokenID = '2c99829d75f87bc701762b6b75a03bdd'; //sap-sandbox
-//    let rtmTokenID = '2c99831876efa8580176f8406c3c2942'; //dstern-sandbox
+    //let rtmTokenID = '2c99831876efa8580176f8406c3c2942'; //dstern-sandbox
     let directlySessionReset = false;
     let newQuestionObj = null;
     //Initial Load of Directly
@@ -57,7 +58,6 @@
     });
     //Add onReady event to ask newQuestion if global variable is set
     DirectlyRTM("onReady", function() {
-      console.log("onReady");
       if (newQuestionObj) {
         DirectlyRTM("askQuestion", newQuestionObj);
         newQuestionObj = null;
@@ -68,21 +68,41 @@
       if (path.path == "/ask" && directlySessionReset) {
         directlySessionReset = false;
         DirectlyRTM("logout");
-        //wait for logout to complete and remove existing widget
-        setTimeout(function() {
+        DirectlyClearSession();
+      }
+    });
+
+    function DirectlyClearSession() {
+      DirectlyRTM("getState", function(params) {
+        if (params.questions === undefined) {
+          //wait for logout to complete and remove existing widget
           let directlyInstances = document.getElementsByClassName("directly-rtm");
           for (let i = 0; i < directlyInstances.length; i++) {
             directlyInstances[i].remove();
           }
-          //Create new session widget to clear old tokens
+          DirectlyRemoveWidget();
+
+        } else {
           setTimeout(function() {
-            DirectlyRTM("config", {
-              id: rtmTokenID
-            });
-          }, 200);
-        }, 500);
+            DirectlyClearSession();
+          }, 50);
+        }
+      });
+    }
+
+    function DirectlyRemoveWidget() {
+      if (document.getElementsByClassName("directly-rtm").length == 0) {
+
+        DirectlyRTM("config", {
+          id: rtmTokenID
+        });
+
+      } else {
+        setTimeout(function() {
+          DirectlyRemoveWidget()
+        }, 50);
       }
-    });
+    }
 
     function askInNewSession(questionObj) {
       //set global variable for question
@@ -95,16 +115,13 @@
 
 
     function testAskQuestion(currForm) {
-      console.log(currForm);
       let askObj = {
         questionText: currForm.question.value,
         name: currForm.name.value,
         email: currForm.email.value
       };
-      console.log('======testAskQuestion========');
-      console.log(askObj);
       askInNewSession(askObj);
-     return false;
+      return false;
     }
   </script>
 </body>
