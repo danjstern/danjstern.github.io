@@ -1,0 +1,131 @@
+.branded, 
+.btn.fa-brand1:hover {
+    background-color: #003767;
+    color: #fff;
+}
+
+
+
+.fa-brand1, 
+.btn.branded:hover,
+.tag,
+.navbar-default .navbar-nav > li > a {
+    color: #003767;
+}
+
+#tab-Good:checked ~ label:nth-of-type(1){color: #003767;}
+.btn.branded:hover,
+.navbar-default .navbar-nav > li > a {
+    background-color: transparent;
+}
+
+
+
+.fa-brand1-20lighter {
+    color: rgba(203, 35, 69, 0.8);
+}
+
+.fa-brand1-40lighter {
+    color: rgba(203, 35, 69, 0.4);
+}
+
+.insidebrandfont {
+    color: white;
+}
+
+.fa-brand1-30darker {
+    color: #0080c0;
+}
+
+.carousel-indicators li {
+    border: 1px solid #0080c0;
+}
+
+.carousel-indicators .active {
+    background-color: #0080c0;
+}
+
+.intro-header-section, .intro-header  {
+    /*background: url(clientlibs-americinn/img/SectionImage-Breakfast.jpeg) no-repeat center center;*/
+}
+
+/*.intro-header {
+    background: url(clientlibs-americinn/img/RamadaHome.png) no-repeat center center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}*/
+
+.bar-down-triangle.branded:after {
+    border-top-color: #0065AB;
+}
+
+.border-bottom-theme, .table>thead>tr>th.border-bottom-theme {
+    border-bottom: solid 1px #003767;
+}
+
+.btn-custom,
+.btn-custom:hover,
+.btn-custom:active,
+.btn-custom:focus,
+.btn-default {
+    border-color: #003767;
+}
+
+
+.btn-custom.change:hover,
+.btn-custom.change:active,
+.btn-custom.change:focus {
+    border-color: #003767;
+    background-color:#fff;
+    color:#003767;
+    box-shadow: inset 0 -3px #003767;
+}
+
+
+
+.card.theme .card__face__colored-side {
+    background: #003767;
+}
+
+.panel-default > .panel-heading.branded {
+    border-color: #ddd;
+}
+
+.nav-pills > li.active > a, 
+.nav-pills > li.active > a:focus, 
+.nav-pills > li.active > a:hover,
+.btn.branded:active,
+.btn.branded:focus, 
+.btn.fa-brand1:active,
+.btn.fa-brand1:focus {
+    color: #fff;
+    background-color: #003767;
+    outline: none;
+}
+
+.navbar-default 
+.navbar-nav > .open > a, 
+.navbar-default .navbar-nav > 
+.open > a:focus, 
+.navbar-default 
+.navbar-nav > .open > a:hover,
+.navbar-nav > li > a:hover {
+    color:#003767;
+}
+
+/*.btn.focus, .btn:focus, .btn:hover {
+    color: #0065AB;
+    text-decoration: none;
+}*/
+/*.table-compliance th {border-bottom: solid 1px #0065AB;}*/
+a, a:focus, a:hover {
+  color: #003767; }
+.product-table-header.brand-clr{background-color: #003767;}
+#gbb-tabs-headers td:nth-of-type(4) {
+    background-color: #003767;
+    color: #FFFFFF;
+    border-right: 1px solid #003767;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 2px solid #003767;
+}

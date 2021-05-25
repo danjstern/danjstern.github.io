@@ -1,0 +1,505 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: inherit;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: -.01em;
+    color: #555;
+    word-wrap: break-word;
+}
+
+li {
+    padding: 3px;
+    color: #003767 !important;
+}
+
+h3,h4 {
+    color: #003767 !important;
+}
+
+.hamburgerIcon {
+    pointer-events: none;
+    cursor: default;
+}
+
+.fixedHeightContainer {
+    width: 80%;
+    height: 140px;
+    overflow: auto;
+    /* margin-left: auto;
+            margin-right: auto;*/
+    border: 1px solid #003767;
+    /* box-shadow: 5px 10px 18px #bcbcbc;*/
+}
+
+.card-header {
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    border: none !important;
+    padding: 0 !important;
+    margin-bottom: 0px !important;
+    width: 100%;
+    word-wrap: hyphenate;
+}
+
+.btn-link {
+    content: '\002d';
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    color: #003767 !important;
+    font-weight: initial !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    background-color: white;
+    height: 40px;
+    padding-left: 40px;
+    padding-top: 0;
+}
+    .btn-link::selection {
+        border-color: white;
+    }
+
+    .btn-link:after {
+        content: '\002d';
+        font-family: 'Montserrat', sans-serif;
+        width: 25px;
+        height: 25px;
+        font-size: large;
+        text-align: center;
+        right: 15px;
+        position: absolute !important;
+        color: #003767;
+        background-color: lightblue;
+        font: bold;
+        border-radius: 50%;
+        left: 0;
+        font-size: large;
+    }
+
+    .btn-link.collapsed:after {
+        content: '\002b';
+        font-family: 'Montserrat', sans-serif;
+        width: 25px;
+        height: 25px;
+        font-size: large;
+        text-align: center;
+        right: 15px;
+        position: absolute !important;
+        color: #003767;
+        background-color: lightblue;
+        font: bold;
+        border-radius: 50%;
+        left: 0;
+        font-size: large;
+    }
+
+    .btn-link:focus {
+        outline: none !important;
+    }
+
+.collapse {
+    background-color: #d3f2fb;
+    border: 1px dotted;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: hyphenate;
+    color: #003767;
+    text-align: center;
+}
+
+.card-body {
+    background-color: #d3f2fb;
+    border: 1px dotted;
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: hyphenate;
+    color: #003767;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.fa-bars:before {
+    content: "\f0c9";
+    color: #003767;
+    font-size: x-large;
+}
+
+.section-icon-hotel:before {
+    content: "\E90C"
+}
+
+.dot {
+    /*height: 30px;*/
+    font-family: 'Montserrat', sans-serif;
+    width: 20px;
+    height: 20px;
+    background-color: #d94646;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 3px;
+    margin-left: -23px;
+    margin-top: -5px;
+    font-size: 12px;
+    border: 1px solid white;
+    cursor:default;
+}
+
+.fa-bell-format{
+    font-size: 30px;
+    color: #003767;
+   padding-bottom:10px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.center-noData {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #003767;
+    font: bold 100px;
+    padding-top: 10px;
+}
+
+img {
+    padding-bottom: 10px;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: transparent !important;
+    border-bottom: 2px solid #969799;
+    padding-top: 10px;
+
+}
+
+    .topnav #myLinks {
+        display: none;
+        background-color: lightblue !important;
+        font-family: 'Montserrat', sans-serif;
+        width: 50%;
+        right: 0;
+        text-align: left;
+    }
+
+    .topnav a {
+        color: black;
+        padding: 8px 8px;
+        text-decoration: none;
+        font-size: 13px;
+        display: block;
+        width: 100%;
+    }
+
+        .topnav a.icon {
+            background-color: transparent !important;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .topnav a:hover {
+            color: #fff;
+            background-color: #003767;
+        }
+
+
+.section-icon-hotel:before {
+    content: "\E90C"
+}
+
+.panel-footer {
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.fa-brand2 {
+    border-bottom-width: 1px;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: none;
+    font-size: 12px;
+    font-weight: 100 !important;
+    padding-left: 10px;
+}
+
+.card {
+    height: auto;
+    border-style: none;
+    word-wrap: break-word;
+}
+
+.listHeading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+    font-weight: 100 !important;
+    padding-left: 10px;
+    font: bold;
+    color: #003767 !important;
+}
+
+.contactUsNotification {
+    color: #6b6969;
+    font-size: x-large;
+    font: bold;
+}
+
+.iconBtn {
+    cursor: pointer;
+    padding: 5px;
+}
+
+        .iconBtn:hover {
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 10%;
+            border: 2px solid #F07D03;
+            padding: 5px;
+        }
+
+.btn-chatButtonpopup {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    width: 150px;
+}
+
+    .btn-chatButtonpopup:hover {
+        color: #fff;
+        background-color: #003767;
+        border-color: #46b8da;
+        width: 150px;
+    }
+
+
+.iconBorderBtn {
+    cursor: pointer;
+    padding: 5px;
+    width: 60%;
+    height: 60%;
+}
+
+    .iconBorderBtn:hover {
+        background-color: transparent;
+        cursor: pointer;
+        border-radius: 10%;
+        border: 2px solid #F07D03;
+        padding: 5px;
+        width: 60%;
+        height: 60%;
+    }
+
+.iconDivBtn {
+    cursor: pointer;
+}
+    .iconDivBtn:hover {
+        background-color: transparent;
+        cursor: pointer;
+        border-radius: 10%;
+        border: 2px solid #F07D03;
+    }
+
+
+.iconTextBtn {
+    color: #003767;
+    cursor: pointer;
+    border-radius: 10%;
+    background-color: transparent;
+    padding: 5px;
+    border: 2px solid white;
+    height:110px;
+}
+
+    .iconTextBtn:hover {
+        color: #003767;
+        cursor: pointer;
+        border-radius: 10%;
+        border: 2px solid #F07D03;
+        background-color: transparent;
+        padding: 5px;
+    }
+
+
+
+.iconBlueBtn {
+    color: #003767;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px;
+    width: 60%;
+    height: 60%;
+}
+
+    .iconBlueBtn:hover {
+        color: white;
+        background-color: #003767;
+        border-radius: 10%;
+        width: 60%;
+        height: 60%;
+    }
+
+.iconText {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 5px;
+    font-weight: 400 !important;
+}
+
+
+.badge-notification i {
+    width: 100px;
+    display: inline-block;
+    text-align: start;
+    position: relative;
+}
+
+.badge-notification .badge:after {
+    content: "100";
+    position: absolute;
+    background: red;
+    height: 2rem;
+    top: 0rem;
+    right: 1.5rem;
+    width: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1rem;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid blue;
+}
+
+
+.liveChat-desktop {
+}
+
+.liveChat-desktop:before {
+    content: '\f086';
+    font-family: fontAwesome;
+    font-size: 4em;
+}
+
+.fa-phone-volume-desktop {
+}
+
+.fa-phone-volume-desktop:before {
+    content: '\f2a0';
+    font-family: fontAwesome;
+    font-size: 4em;
+}
+
+.fa-desktop-Desktop {
+}
+
+    .fa-desktop-Desktop:before {
+        content: '\f108';
+        font-family: fontAwesome;
+        font-size: 4em;
+    }
+   
+
+/*  Deployment order form*/
+.fa-file-alt-desktop {
+}
+
+    .fa-file-alt-desktop:before {
+        content: '\f0f6';
+        font-family: fontAwesome;
+        font-size: 4em;
+    }
+
+.fa-file-alt-Mobile {
+}
+
+.fa-chain {
+}
+.fa-chain-desktop:before {
+    content: '\f0c1';
+    font-family: fontAwesome;
+    font-size: 4em;
+}
+
+.imageLogo {
+    max-height: 70px;
+    max-width: 200px;
+    width: 100%;
+    padding-top:10px;
+}
+
+.contactUsLogo {
+    max-height: 70px;
+    max-width: 350px;
+    width: 100%;
+    padding-left: 20%;
+}
+
+#remoteLoginMobile, #remoteLoginMobileText {
+    display: none;
+}
+
+
+/*    tab view*/
+@media only screen and (min-width: 600px) {
+    .fa-arrow-alt-circle-right {
+        visibility: hidden;
+        display: none;
+    }
+
+    .icon {
+        /*pointer-events: none;*/
+    }
+
+    .card {
+        height: auto;
+    }
+
+    .text-left-mobile {
+        text-align: left;
+        padding-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width : 600px) {
+
+    .iconTextBtn {
+        color: #003767;
+        cursor: pointer;
+        border-radius: 10%;
+        background-color: transparent;
+        padding: 5px;
+        border: 2px solid white;
+        height: 110px;
+    }
+
+        .iconTextBtn:hover {
+            color: #003767;
+            cursor: pointer;
+            border-radius: 10%;
+            border: 2px solid #F07D03;
+            background-color: transparent;
+            padding: 5px;
+        }
+
+    .contactUsLogo {
+        max-height: 70px;
+        max-width: 270px;
+        width: 100%;
+    }
+}
