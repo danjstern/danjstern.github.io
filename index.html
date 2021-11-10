@@ -25,6 +25,12 @@ Test page<br/>
         }
     })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
     DirectlyRTM("config",{id: "2c998593701ce024017035fad4d06aa5" });
+    DirectlyRTM("onNavigate", function(path) {
+      console.log(path);
+    // Do something
+    // path is the view path, for example `/ask` or `/list`
+});
+    
 </script>
 
 </body>
