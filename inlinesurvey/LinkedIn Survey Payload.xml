@@ -1,0 +1,75 @@
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<h:ClientInfoHeader xmlns:h="urn:messages.ws.rightnow.com/v1_2" xmlns="urn:messages.ws.rightnow.com/v1_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<AppID>SOAP Demo</AppID>
+		</h:ClientInfoHeader>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink">uIDPozZ3WZAW6btNpSTmkK3iFPcAAAAAQQhAaompaUOnwNxTUqmIWlnrv0jeu8tMgKXpa0a2oSsACQAA</VsDebuggerCausalityData>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<o:UsernameToken u:Id="uuid-e08b44a4-8af0-4857-bbdd-47421a09d2da-1">
+                <o:Username>{{auth.username}}</o:Username>
+                <o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{{auth.password}}</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<Create xmlns="urn:messages.ws.rightnow.com/v1_2">
+			<RNObjects xsi:type="q1:GenericObject" xmlns:q1="urn:generic.ws.rightnow.com/v1_2">
+				<q1:ObjectType>
+					<q1:Namespace>OBJECTS1</q1:Namespace>
+					<q1:TypeName>directly_survey</q1:TypeName>
+				</q1:ObjectType>
+				<q1:GenericFields dataType="BOOLEAN" name="received_response">
+					<q1:DataValue>
+						<q1:BooleanValue>1</q1:BooleanValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="INTEGER" name="overall_rating">
+					<q1:DataValue>
+						<q1:IntegerValue>{{question.metadata.linkedInSurvey.overall-rating}}</q1:IntegerValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="INTEGER" name="representative_helpfulness">
+					<q1:DataValue>
+						<q1:IntegerValue>{{question.metadata.linkedInSurvey.expert-rating}}</q1:IntegerValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="INTEGER" name="speed_of_response">
+					<q1:DataValue>
+						<q1:IntegerValue>{{question.metadata.linkedInSurvey.speed-rating}}</q1:IntegerValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="INTEGER" name="level_of_resolution">
+					<q1:DataValue>
+						<q1:IntegerValue>{{question.metadata.linkedInSurvey.resolution-level}}</q1:IntegerValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="STRING" name="additional_feedback">
+					<q1:DataValue>
+						<q1:StringValue>{{question.metadata.linkedInSurvey.additional-feedback}}</q1:StringValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+   				<q1:GenericFields dataType="BOOLEAN" name="follow_up">
+					<q1:DataValue>
+						<q1:BooleanValue>{{question.metadata.linkedInSurvey.follow-up}}</q1:BooleanValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="STRING" name="follow_up_contact">
+					<q1:DataValue>
+						<q1:StringValue>{{question.metadata.linkedInSurvey.follow-up-contact}}</q1:StringValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+				<q1:GenericFields dataType="NAMED_ID" name="incident_id">
+					<q1:DataValue>
+						<q1:NamedIDValue>
+							<ID id="38007043" xmlns="urn:base.ws.rightnow.com/v1_2"/>
+						</q1:NamedIDValue>
+					</q1:DataValue>
+				</q1:GenericFields>
+			</RNObjects>
+			<ProcessingOptions>
+				<SuppressExternalEvents>false</SuppressExternalEvents>
+				<SuppressRules>false</SuppressRules>
+			</ProcessingOptions>
+		</Create>
+	</s:Body>
+</s:Envelope>

@@ -1,0 +1,281 @@
+#postChatSurveyContainer {
+  background: #F4F6F6;
+  border-radius: 12px;
+  color: #2f4550;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+  width: 100%;
+  z-index: 999999;
+}
+
+.directly-post-chat-survey-header {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #ffffff;
+    margin: -10px -10px 10px 0px;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 54px;
+    -ms-flex: 0 0 54px;
+    flex: 0 0 54px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 54px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    white-space: nowrap;
+    z-index: 100;
+}
+#directlyFormContainer {
+    background: #F4F6F6;
+    margin-top: -2px;
+    padding: 0px;
+    margin-right: -10px;
+    border-radius: 0px 0 12px 12px;
+    padding-bottom: 4px;
+    box-shadow: 0px 24px 30px rgba(0,0,0,0.25);
+    max-height: 80vh;
+    overflow-y: auto;
+}
+#directlyFormFields {
+    height: 600px;
+}
+
+.directly-post-chat-survey-header h1 {
+  box-sizing: border-box;
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+  min-width: 0;
+  overflow: hidden;
+  padding: 2px 10px 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  width: 100%;
+  background: white;
+}
+
+.directly-chat-survey-input-group, .directly-chat-survey-submit-group {
+  margin: 0px 15px 20px;
+}
+
+.directly-chat-survey-input-group>label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.directly-chat-survey-input-group>label.afterCheckBox {
+  display: inline;
+}
+
+.directly-chat-survey-input-group.directly-chat-survey-checkbox>label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-indent: unset;
+  margin: -19px 20px 00px 20px;
+}
+
+.directly-chat-survey-input-group>input, .directly-chat-survey-input-group>select, .directly-chat-survey-input-group>textarea {
+  border: 1px solid #D5DADC;
+      background: #FFFFFF;
+      border-radius: 0;
+      box-sizing: border-box;
+      padding: 10px 8px 8px;
+      width: 100%;
+      -webkit-appearance: none;
+      font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+      height: 38px;
+      font-size: 16px;
+}
+.directly-chat-survey-input-group>input[type="checkbox"] {
+  height: 13px;
+  -webkit-appearance: checkbox;
+width: unset;
+display: inline;
+
+}
+
+.directly-chat-survey-checkbox.directly-chat-survey-input-group>input {
+    width: unset;
+    -webkit-appearance: checkbox;
+}
+
+.directly-chat-survey-input-group>textarea {
+  height: 75px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 60px;
+}
+
+select::-ms-expand {
+     display: none;
+}
+
+.directly-chat-survey-select-group:after {
+  content: '\02EC';
+      font: 30px "Consolas", monospace;
+      color: #33333380;
+      right: 35px;
+      position: absolute;
+}
+
+.directly-chat-survey-select-group select {
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  height: 45px;
+  float: right;
+  margin: 5px 0px 15px;
+  line-height: 1.75;
+  color: #333;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  -ms-word-break: normal;
+  word-break: normal;
+}
+
+button#directly-submit {
+    width: 100%;
+    padding: 10px 0px;
+    background-color: #1092DA;
+    border: 1px solid #1092DA;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #fff;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+    vertical-align: bottom;
+    white-space: nowrap;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.directly-chat-survey-header-menu {
+    color: grey;
+    border-right: 1px solid #d5dadc;
+    line-height: 55px;
+    font-size: 22px;
+    flex: 0 1 40px;
+    padding-left: 10px;
+}
+.directly-chat-survey-header-minimize {
+      flex: 0 0 40px;
+      border-left: 1px solid #d5dadc;
+      line-height: 55px;
+      font-size: 22px;
+      text-align: center;
+      color: grey;
+}
+
+#postChatSurveyContainer > input.directlyHasValue:required:invalid, #postChatSurveyContainer > input.directlyHasValue:focus:invalid, #postChatSurveyContainer > select.directlyHasValue:required:invalid, #postChatSurveyContainer > select.directlyHasValue:focus:invalid, #postChatSurveyContainer > textarea.directlyHasValue:required:invalid, #postChatSurveyContainer > textarea.directlyHasValue:focus:invalid {
+    box-shadow: 0 0 20px rgb(243 88 88 / 58%);
+}
+
+
+input.directlyHasValue:required:invalid, input.directlyHasValue:focus:invalid, select.directlyHasValue:required:invalid, select.directlyHasValue:focus:invalid, textarea.directlyHasValue:required:invalid, textarea.directlyHasValue:focus:invalid   {
+border: 1px red solid;
+  -moz-box-shadow: none;
+  content: "required";
+}
+
+
+.directlyFormSubmitted input:required:invalid, .directlyFormSubmitted select:required:invalid, .directlyFormSubmitted textarea:required:invalid {
+border: 1px red solid;
+  -moz-box-shadow: none;
+  content: "required";
+}
+
+.directly-validation-error {
+    text-align: right;
+    font-size: 80%;
+    font-style: italic;
+    color: red;
+}
+
+@media (max-width: 346px) {
+  #postChatSurveyContainer .directly-chat-survey-input-group input, #postChatSurveyContainer .directly-chat-survey-input-group textarea {
+  font-size: 13px;
+  padding: 17px 14px 15px;
+}
+}
+
+@media (min-width: 668px) {
+  #postChatSurveyContainer {
+    max-width: 356px;
+    padding: 10px 10px 0 0;
+  }
+
+  #postChatSurveyContainer {
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    max-width: 356px;
+    max-height: 90vh;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 0 0;
+    position: fixed;
+    z-index: 99999999;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 668px) {
+  body {
+    margin: 0;
+  }
+  #directlyFormContainer {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+  #directlyFormFields {
+      height: calc(100% - 120px);
+      overflow: auto;
+  }
+  #postChatSurveyContainer {
+    position: fixed;
+    top: 0;
+    border-radius: 0px;
+    box-shadow: none;
+    margin: 0;
+    padding-bottom: 10px;
+    height: calc(100% - 0px);
+  }
+}
+
+
+.directly-survey-radio-btn-group{
+    display:inline-block;
+    text-align:center;
+    width: 18%;
+    vertical-align: top;
+}
+.directly-survey-radio-btn-group label {
+    display:block;
+    font-size: 75%;
+    padding-top: 5px;
+}
