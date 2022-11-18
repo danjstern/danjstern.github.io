@@ -24,7 +24,22 @@ Test page<br/>
             i.attachEvent("onload", function() { y.appendChild(l); });
         }
     })(document, window, "DirectlyRTM", "https://www.directly.com/widgets/rtm/embed.js");
-    DirectlyRTM("config",{id: "2c998593701ce024017035fad4d06aa5" });
+    DirectlyRTM("config",{id: "2c998593701ce024017035fad4d06aa5",
+      i18n: {
+        en: {
+          text: {
+            "otherwise_accept_this_answer_part_1": "Otherwise, continue to chat with the expert and",
+            "otherwise_accept_this_answer_part_2": "accept this answer",
+            "otherwise_accept_this_answer_part_3": "when your question is answered to make sure {{recognitionRecipientName}} gets credit.",
+            "route_your_question_to_company_part_1": "If at any time you are not happy with the help you're receiving, you can",
+            "route_your_question_to_company_part_2": "click here to route your question",
+            "route_your_question_to_company_part_3": "to a VMware representative.",
+            "make_sure_gets_credit_part_1": "If {{recognitionRecipientName}} has solved your request, please ",
+            "make_sure_gets_credit_part_2": "accept this answer",
+            "accepting_answer": "By accepting this answer, you will close your VMWare case and give {{recognitionRecipientName}} credit for helping you.",
+          },
+        },
+      } });
     let currentUUID = null;
     DirectlyRTM("onNavigate", function(path) {
       console.log(path);
