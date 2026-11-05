@@ -1,0 +1,1961 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sponsors | Central Oregon Avalanche Center</title>
+        <!-- Assistant is the theme font; loaded here only so the mockup header/footer match the live site -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <!--
+  COAC SPONSORS PAGE MOCKUP
+  - Everything is scoped under .coac-sp so it will not clash with the Shopify theme.
+  - Colors come from the COAC style guide. Web font per style guide: Arial.
+  - Comments marked "METAOBJECT" show where a Liquid loop over sponsor entries would go.
+    Suggested sponsor metaobject fields:
+      name (text), logo (file), url (url), tier (choice: three_sisters / broken_top / paulina_peak / tumalo),
+      blurb (text, optional), featured (true/false), member_perk (text, optional), events (list, optional)
+  - Tier assignments below are placeholders based on the current page. Swap in real data.
+-->
+        <style>
+            .coac-sp {
+                --ice: #cee8f3;
+                --sky: #4cc1ef;
+                --teal: #058fb9;
+                --navy: #0d4761;
+                --deep: #002a3a;
+                --g1: #e6e7e8;
+                --g4: #bcbec0;
+                --g8: #8a8c8e;
+                --g11: #58595b;
+                --ink: #333132;
+                font-family: Arial, Helvetica, sans-serif;
+                color: var(--ink);
+                line-height: 1.55;
+                background: #fff;
+            }
+            .coac-sp *,
+            .coac-sp *::before,
+            .coac-sp *::after {
+                box-sizing: border-box;
+            }
+            .coac-sp img {
+                max-width: 100%;
+                display: block;
+            }
+            .coac-sp a {
+                color: var(--teal);
+            }
+            .coac-sp .wrap {
+                max-width: 1120px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+            .coac-sp section {
+                padding: 64px 0;
+            }
+            .coac-sp .eyebrow {
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--teal);
+                margin: 0 0 10px;
+            }
+            .coac-sp h1,
+            .coac-sp h2,
+            .coac-sp h3 {
+                margin: 0;
+                line-height: 1.15;
+                color: var(--deep);
+            }
+            .coac-sp h2 {
+                font-size: clamp(26px, 3.4vw, 36px);
+                margin-bottom: 12px;
+            }
+            .coac-sp .lede {
+                font-size: 18px;
+                color: var(--g11);
+                max-width: 720px;
+                margin: 0;
+            }
+            .coac-sp .center {
+                text-align: center;
+            }
+            .coac-sp .center .lede {
+                margin: 0 auto;
+            }
+
+            /* Buttons */
+            .coac-sp .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 14px 26px;
+                border-radius: 999px;
+                font-weight: 700;
+                font-size: 16px;
+                text-decoration: none;
+                transition:
+                    transform 0.15s ease,
+                    background 0.15s ease,
+                    box-shadow 0.15s ease;
+            }
+            .coac-sp .btn:hover {
+                transform: translateY(-2px);
+            }
+            .coac-sp .btn-primary {
+                background: var(--sky);
+                color: var(--deep);
+                box-shadow: 0 6px 20px rgba(76, 193, 239, 0.35);
+            }
+            .coac-sp .btn-primary:hover {
+                background: #6fd0f5;
+            }
+            .coac-sp .btn-ghost {
+                border: 2px solid rgba(255, 255, 255, 0.7);
+                color: #fff;
+            }
+            .coac-sp .btn-ghost:hover {
+                background: rgba(255, 255, 255, 0.12);
+            }
+            .coac-sp .btn-dark {
+                background: var(--navy);
+                color: #fff;
+            }
+            .coac-sp .btn-dark:hover {
+                background: var(--deep);
+            }
+            .coac-sp .btn-outline {
+                border: 2px solid var(--navy);
+                color: var(--navy);
+            }
+            .coac-sp .btn-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 14px;
+                margin-top: 28px;
+            }
+            .coac-sp .center .btn-row {
+                justify-content: center;
+            }
+
+            /* 1. Hero */
+            .coac-sp .hero {
+                position: relative;
+                color: #fff;
+                padding: 96px 0 120px;
+                overflow: hidden;
+                background:
+                    linear-gradient(
+                        160deg,
+                        rgba(0, 42, 58, 0.92) 0%,
+                        rgba(13, 71, 97, 0.85) 55%,
+                        rgba(5, 143, 185, 0.75) 100%
+                    ),
+                    var(--deep);
+                /* Swap in a hero photo: add url('...jpg') center/cover as a second background layer */
+            }
+            .coac-sp .hero::after {
+                /* mountain silhouette in brand blues */
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: -1px;
+                height: 90px;
+                background:
+                    linear-gradient(to top left, transparent 50%, #fff 50.5%)
+                        left bottom / 50% 100% no-repeat,
+                    linear-gradient(to top right, transparent 50%, #fff 50.5%)
+                        right bottom / 50% 100% no-repeat;
+                opacity: 1;
+                transform: scaleY(-1);
+            }
+            .coac-sp .hero h1 {
+                color: #fff;
+                font-size: clamp(34px, 5.2vw, 58px);
+                max-width: 820px;
+            }
+            .coac-sp .hero h1 span {
+                color: var(--sky);
+            }
+            .coac-sp .hero .eyebrow {
+                color: var(--ice);
+            }
+            .coac-sp .hero p {
+                font-size: 19px;
+                max-width: 640px;
+                color: var(--ice);
+                margin: 20px 0 0;
+            }
+
+            /* 2. Stats */
+            .coac-sp .stats {
+                padding: 0;
+                margin-top: -48px;
+                position: relative;
+                z-index: 2;
+            }
+            .coac-sp .stat-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                background: #fff;
+                border-radius: 16px;
+                box-shadow: 0 14px 40px rgba(0, 42, 58, 0.14);
+                overflow: hidden;
+            }
+            .coac-sp .stat {
+                padding: 28px 22px;
+                text-align: center;
+                border-right: 1px solid var(--g1);
+            }
+            .coac-sp .stat:last-child {
+                border-right: 0;
+            }
+            .coac-sp .stat b {
+                display: block;
+                font-size: clamp(30px, 3.6vw, 42px);
+                color: var(--teal);
+                line-height: 1;
+            }
+            .coac-sp .stat span {
+                display: block;
+                margin-top: 8px;
+                font-size: 14px;
+                color: var(--g11);
+            }
+
+            /* 3. Spotlight */
+            .coac-sp .spotlight {
+                display: grid;
+                grid-template-columns: 1fr 1.3fr;
+                gap: 0;
+                align-items: stretch;
+                border-radius: 20px;
+                overflow: hidden;
+                background: var(--ice);
+            }
+            .coac-sp .spotlight-logo {
+                background: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 48px;
+            }
+            .coac-sp .spotlight-logo img {
+                max-height: 180px;
+                width: auto;
+            }
+            .coac-sp .spotlight-body {
+                padding: 44px 48px;
+            }
+            .coac-sp .spotlight-body h3 {
+                font-size: 28px;
+                margin-bottom: 6px;
+            }
+            .coac-sp .pill {
+                display: inline-block;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                background: var(--navy);
+                color: #fff;
+                padding: 5px 12px;
+                border-radius: 999px;
+            }
+            .coac-sp .pill.light {
+                background: var(--ice);
+                color: var(--navy);
+            }
+            .coac-sp .pill.open {
+                background: #fff;
+                color: var(--teal);
+                border: 1.5px dashed var(--teal);
+            }
+            .coac-sp blockquote {
+                margin: 18px 0 22px;
+                font-size: 19px;
+                color: var(--navy);
+                border-left: 4px solid var(--sky);
+                padding-left: 16px;
+            }
+
+            /* 4. Tiers */
+            .coac-sp .tier {
+                margin-top: 48px;
+            }
+            .coac-sp .tier-head {
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 8px;
+                border-bottom: 2px solid var(--g1);
+                padding-bottom: 12px;
+                margin-bottom: 22px;
+            }
+            .coac-sp .tier-head h3 {
+                font-size: 24px;
+            }
+            .coac-sp .tier-head h3 small {
+                font-size: 15px;
+                color: var(--g8);
+                font-weight: 400;
+                margin-left: 8px;
+            }
+            .coac-sp .tier-head .tri {
+                color: var(--teal);
+                margin-right: 8px;
+            }
+            .coac-sp .logo-grid {
+                display: grid;
+                gap: 18px;
+            }
+            .coac-sp .logo-grid.xl {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .coac-sp .logo-grid.lg {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .coac-sp .logo-grid.md {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .coac-sp .logo-grid.sm {
+                grid-template-columns: repeat(6, 1fr);
+            }
+
+            .coac-sp .sp-card {
+                position: relative;
+                background: #fff;
+                border: 1px solid var(--g1);
+                border-radius: 14px;
+                display: flex;
+                flex-direction: column;
+                text-decoration: none;
+                color: inherit;
+                transition:
+                    transform 0.18s ease,
+                    box-shadow 0.18s ease,
+                    border-color 0.18s ease;
+            }
+            .coac-sp a.sp-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 12px 28px rgba(0, 42, 58, 0.12);
+                border-color: var(--sky);
+            }
+            .coac-sp .sp-card .logo {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 26px;
+                min-height: 130px;
+            }
+            .coac-sp .logo-grid.xl .sp-card .logo {
+                min-height: 200px;
+            }
+            .coac-sp .logo-grid.lg .sp-card .logo {
+                min-height: 160px;
+            }
+            .coac-sp .logo-grid.sm .sp-card .logo {
+                min-height: 100px;
+                padding: 16px;
+            }
+            .coac-sp .sp-card .logo img {
+                max-height: 90px;
+                width: auto;
+                object-fit: contain;
+            }
+            .coac-sp .logo-grid.xl .sp-card .logo img {
+                max-height: 130px;
+            }
+            .coac-sp .logo-grid.sm .sp-card .logo img {
+                max-height: 56px;
+            }
+            .coac-sp .sp-card .meta {
+                border-top: 1px solid var(--g1);
+                padding: 12px 16px;
+                font-size: 14px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8px;
+            }
+            .coac-sp .sp-card .meta b {
+                color: var(--deep);
+            }
+            .coac-sp .sp-card .meta .go {
+                color: var(--teal);
+                font-weight: 700;
+                white-space: nowrap;
+            }
+            .coac-sp .sp-card .blurb {
+                padding: 0 16px 14px;
+                font-size: 14px;
+                color: var(--g11);
+                margin: 0;
+            }
+
+            .coac-sp .open-card {
+                border: 2px dashed var(--g4);
+                background: #fafcfd;
+                border-radius: 14px;
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 28px;
+                min-height: 160px;
+                color: var(--g11);
+                transition:
+                    border-color 0.15s ease,
+                    background 0.15s ease;
+            }
+            .coac-sp .open-card:hover {
+                border-color: var(--teal);
+                background: #f1f9fc;
+            }
+            .coac-sp .open-card b {
+                color: var(--navy);
+                font-size: 17px;
+                display: block;
+                margin-bottom: 4px;
+            }
+            .coac-sp .open-card span {
+                font-size: 14px;
+            }
+            .coac-sp .logo-grid.xl .open-card {
+                min-height: 200px;
+            }
+
+            /* 5. Events */
+            .coac-sp .events {
+                background: #f5f8fa;
+            }
+            .coac-sp .event-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+                margin-top: 36px;
+            }
+            .coac-sp .event {
+                background: #fff;
+                border-radius: 14px;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                box-shadow: 0 2px 10px rgba(0, 42, 58, 0.06);
+            }
+            .coac-sp .event .date {
+                background: var(--navy);
+                color: #fff;
+                padding: 16px 18px;
+                display: flex;
+                gap: 14px;
+                align-items: center;
+            }
+            .coac-sp .event .date .d {
+                font-size: 34px;
+                font-weight: 700;
+                line-height: 1;
+                color: var(--sky);
+            }
+            .coac-sp .event .date .m {
+                font-size: 13px;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+            .coac-sp .event .body {
+                padding: 18px;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .coac-sp .event h3 {
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+            .coac-sp .event p {
+                font-size: 14px;
+                color: var(--g11);
+                margin: 0 0 14px;
+            }
+            .coac-sp .event .presented {
+                margin-top: auto;
+                font-size: 12px;
+                color: var(--g8);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+            }
+            .coac-sp .event .presented img {
+                max-height: 36px;
+                width: auto;
+                margin-top: 8px;
+            }
+            .coac-sp .event .presented .pill {
+                margin-top: 8px;
+            }
+            .coac-sp .event .links {
+                display: flex;
+                gap: 14px;
+                margin-top: 14px;
+                font-size: 14px;
+                font-weight: 700;
+            }
+
+            /* 6. Perks */
+            .coac-sp .perk-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+                margin-top: 32px;
+            }
+            .coac-sp .perk {
+                border-radius: 14px;
+                border: 1px solid var(--g1);
+                padding: 22px;
+                display: flex;
+                gap: 16px;
+                align-items: center;
+            }
+            .coac-sp .perk img {
+                width: 72px;
+                height: 72px;
+                object-fit: contain;
+                flex: none;
+            }
+            .coac-sp .perk b {
+                display: block;
+                color: var(--deep);
+                font-size: 17px;
+            }
+            .coac-sp .perk span {
+                font-size: 14px;
+                color: var(--g11);
+            }
+            .coac-sp .perk .code {
+                display: inline-block;
+                margin-top: 6px;
+                font-family: "Courier New", monospace;
+                font-weight: 700;
+                background: var(--ice);
+                color: var(--navy);
+                padding: 2px 8px;
+                border-radius: 6px;
+                font-size: 13px;
+            }
+
+            /* 7. Become a sponsor */
+            .coac-sp .inkind-note {
+                max-width: 760px;
+                margin: 36px auto 0;
+                padding: 22px 26px;
+                border-radius: 14px;
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px dashed rgba(206, 232, 243, 0.35);
+                text-align: center;
+            }
+            .coac-sp .inkind-note h3 {
+                color: #fff;
+                font-size: 18px;
+                margin-bottom: 6px;
+            }
+            .coac-sp .inkind-note p {
+                color: var(--ice);
+                font-size: 15px;
+                margin: 0;
+            }
+            .coac-sp .join {
+                background: var(--deep);
+                color: #fff;
+            }
+            .coac-sp .join h2 {
+                color: #fff;
+            }
+            .coac-sp .join .lede {
+                color: var(--ice);
+            }
+            .coac-sp .level-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+                margin-top: 40px;
+            }
+            .coac-sp .level {
+                background: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(206, 232, 243, 0.2);
+                border-radius: 16px;
+                padding: 24px;
+            }
+            .coac-sp .level.top {
+                background: rgba(76, 193, 239, 0.14);
+                border-color: var(--sky);
+            }
+            .coac-sp .level h3 {
+                color: #fff;
+                font-size: 19px;
+            }
+            .coac-sp .level .elev {
+                font-size: 13px;
+                color: var(--sky);
+            }
+            .coac-sp .level .price {
+                font-size: 26px;
+                font-weight: 700;
+                color: #fff;
+                margin: 14px 0 12px;
+            }
+            .coac-sp .level ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                font-size: 14px;
+                color: var(--ice);
+            }
+            .coac-sp .level li {
+                padding: 6px 0 6px 20px;
+                position: relative;
+                border-top: 1px solid rgba(206, 232, 243, 0.12);
+            }
+            .coac-sp .level li::before {
+                content: "\25B2";
+                position: absolute;
+                left: 0;
+                top: 7px;
+                font-size: 10px;
+                color: var(--sky);
+            }
+            .coac-sp .fine {
+                font-size: 13px;
+                color: var(--g4);
+                margin-top: 26px;
+            }
+            .coac-sp .contact-line {
+                margin-top: 18px;
+                font-size: 15px;
+                color: var(--ice);
+            }
+            .coac-sp .contact-line a {
+                color: var(--sky);
+            }
+
+            /* Responsive */
+            @media (max-width: 900px) {
+                .coac-sp .stat-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .coac-sp .stat:nth-child(2) {
+                    border-right: 0;
+                }
+                .coac-sp .stat:nth-child(-n + 2) {
+                    border-bottom: 1px solid var(--g1);
+                }
+                .coac-sp .spotlight {
+                    grid-template-columns: 1fr;
+                }
+                .coac-sp .logo-grid.lg,
+                .coac-sp .logo-grid.md {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .coac-sp .logo-grid.sm {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+                .coac-sp .event-grid,
+                .coac-sp .level-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .coac-sp .perk-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            @media (max-width: 560px) {
+                .coac-sp section {
+                    padding: 48px 0;
+                }
+                .coac-sp .hero {
+                    padding: 64px 0 100px;
+                }
+                .coac-sp .logo-grid.xl {
+                    grid-template-columns: 1fr;
+                }
+                .coac-sp .logo-grid.sm {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+                .coac-sp .event-grid,
+                .coac-sp .level-grid {
+                    grid-template-columns: 1fr;
+                }
+                .coac-sp .spotlight-body {
+                    padding: 28px 24px;
+                }
+                .coac-sp .btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        </style>
+    </head>
+    <body style="margin: 0">
+        <!-- =====================================================================
+     SITE HEADER (MOCKUP ONLY)
+     Your Shopify theme already renders this. Do not paste it into the page.
+     It is here so the mockup shows the page in context.
+     ===================================================================== -->
+        <style>
+            .theme-hdr,
+            .theme-ftr {
+                font-family: Assistant, Arial, sans-serif;
+                color: rgba(18, 18, 18, 0.75);
+            }
+            .theme-hdr a,
+            .theme-ftr a {
+                color: inherit;
+                text-decoration: none;
+            }
+            .theme-hdr {
+                background: #fff;
+                border-bottom: 1px solid rgba(18, 18, 18, 0.08);
+                position: relative;
+                z-index: 50;
+            }
+            .theme-hdr .bar {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 50px;
+                height: 99px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .theme-hdr .brand {
+                flex: none;
+            }
+            .theme-hdr .brand img {
+                width: 250px;
+                height: auto;
+                display: block;
+            }
+            .theme-hdr nav {
+                display: flex;
+                align-items: center;
+                gap: 0;
+                flex: 1;
+                justify-content: center;
+                min-width: 0;
+            }
+            .theme-hdr .item {
+                position: relative;
+            }
+            .theme-hdr .item > a,
+            .theme-hdr .item > span {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 10px 9px;
+                font-size: 15px;
+                letter-spacing: 0.03rem;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+            .theme-hdr .item > a:hover,
+            .theme-hdr .item > span:hover {
+                color: #121212;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+            }
+            .theme-hdr .item.active > span {
+                color: #121212;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+            }
+            .theme-hdr .caret {
+                width: 10px;
+                height: 6px;
+            }
+            .theme-hdr .menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                min-width: 220px;
+                background: #fff;
+                border: 1px solid rgba(18, 18, 18, 0.1);
+                padding: 14px 0;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            }
+            .theme-hdr .item:hover .menu,
+            .theme-hdr .item:focus-within .menu {
+                display: block;
+            }
+            .theme-hdr .menu a {
+                display: block;
+                padding: 7px 22px;
+                font-size: 14px;
+            }
+            .theme-hdr .menu a:hover {
+                color: #121212;
+                text-decoration: underline;
+            }
+            .theme-hdr .cta {
+                background: #1a87b7;
+                color: #fff !important;
+                font-weight: 700;
+                font-size: 15px;
+                padding: 12px 12px;
+                letter-spacing: 0.02rem;
+                white-space: nowrap;
+            }
+            .theme-hdr .cta:hover {
+                background: #0d4761;
+            }
+            .theme-hdr .icons {
+                display: flex;
+                gap: 6px;
+            }
+            .theme-hdr .icons a {
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #121212;
+            }
+            .theme-hdr .icons svg {
+                width: 22px;
+                height: 22px;
+            }
+            .theme-hdr .burger {
+                display: none;
+            }
+            .theme-hdr .drawer {
+                display: none;
+            }
+
+            @media (max-width: 1200px) {
+                .theme-hdr .bar {
+                    padding: 0 16px;
+                    height: 72px;
+                    gap: 8px;
+                }
+                .theme-hdr nav,
+                .theme-hdr .cta,
+                .theme-hdr .icons .acct {
+                    display: none;
+                }
+                .theme-hdr .burger {
+                    display: flex;
+                }
+                .theme-hdr .brand {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                }
+                .theme-hdr .brand img {
+                    width: 190px;
+                }
+                .theme-hdr .drawer[open] {
+                    display: block;
+                }
+                .theme-hdr details.drawer > summary {
+                    list-style: none;
+                }
+                .theme-hdr .drawer-panel {
+                    border-top: 1px solid rgba(18, 18, 18, 0.08);
+                    padding: 8px 16px 20px;
+                }
+                .theme-hdr .drawer-panel details summary {
+                    padding: 12px 0;
+                    font-size: 17px;
+                    cursor: pointer;
+                }
+                .theme-hdr .drawer-panel details a,
+                .theme-hdr .drawer-panel > a {
+                    display: block;
+                    padding: 9px 0 9px 14px;
+                    font-size: 15px;
+                }
+                .theme-hdr .drawer-panel > a {
+                    padding-left: 0;
+                    font-size: 17px;
+                }
+                .theme-hdr .drawer-panel .cta {
+                    display: inline-block;
+                    margin-top: 12px;
+                    padding: 12px 18px;
+                }
+            }
+
+            /* Footer */
+            .theme-ftr {
+                background: #fff;
+                border-top: 1px solid rgba(18, 18, 18, 0.08);
+            }
+            .theme-ftr .top {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 36px 50px;
+                display: grid;
+                grid-template-columns: 1fr 1fr auto;
+                gap: 40px;
+                align-items: end;
+            }
+            .theme-ftr h2 {
+                font-size: 18px;
+                font-weight: 400;
+                color: #121212;
+                margin: 0 0 20px;
+                letter-spacing: 0.04rem;
+            }
+            .theme-ftr .sub form {
+                display: flex;
+                border: 1px solid rgba(18, 18, 18, 0.55);
+                max-width: 360px;
+            }
+            .theme-ftr .sub input {
+                flex: 1;
+                border: 0;
+                padding: 14px 20px;
+                font: inherit;
+                font-size: 16px;
+                background: transparent;
+                min-width: 0;
+            }
+            .theme-ftr .sub button {
+                border: 0;
+                background: none;
+                padding: 0 16px;
+                cursor: pointer;
+                color: #121212;
+            }
+            .theme-ftr .contact p {
+                margin: 0 0 6px;
+                font-size: 16px;
+                letter-spacing: 0.04rem;
+            }
+            .theme-ftr .contact a {
+                text-decoration: underline;
+                text-underline-offset: 3px;
+            }
+            .theme-ftr .social {
+                display: flex;
+                gap: 4px;
+            }
+            .theme-ftr .social a {
+                width: 42px;
+                height: 42px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #121212;
+            }
+            .theme-ftr .social svg {
+                width: 18px;
+                height: 18px;
+            }
+            .theme-ftr .bottom {
+                border-top: 1px solid rgba(18, 18, 18, 0.08);
+            }
+            .theme-ftr .bottom div {
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 22px 50px 30px;
+                font-size: 11px;
+                letter-spacing: 0.05rem;
+            }
+            .theme-ftr .bottom a:hover {
+                text-decoration: underline;
+            }
+            @media (max-width: 760px) {
+                .theme-ftr .top {
+                    grid-template-columns: 1fr;
+                    padding: 32px 16px;
+                    gap: 28px;
+                }
+                .theme-ftr .bottom div {
+                    padding: 20px 16px 28px;
+                }
+            }
+        </style>
+
+        <header class="theme-hdr">
+            <div class="bar">
+                <div class="icons burger">
+                    <a
+                        href="#"
+                        onclick="
+                            var d = document.getElementById('mdrawer');
+                            d.open = !d.open;
+                            return false;
+                        "
+                        aria-label="Menu"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                        >
+                            <path d="M3 6h18M3 12h18M3 18h18" />
+                        </svg>
+                    </a>
+                </div>
+                <a class="brand" href="https://coavalanche.org/"
+                    ><img
+                        src="https://coavalanche.org/cdn/shop/files/coac-side-logo.png?v=1724355736&width=600"
+                        alt="Central Oregon Avalanche Center"
+                /></a>
+                <nav aria-label="Main">
+                    <div class="item">
+                        <span
+                            >Forecasts
+                            <svg class="caret" viewBox="0 0 10 6">
+                                <path
+                                    d="M1 1l4 4 4-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.3"
+                                /></svg
+                        ></span>
+                        <div class="menu">
+                            <a
+                                href="https://coavalanche.org/pages/forecasts/#/central-cascades"
+                                >Central Cascades</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/forecasts/#/newberry"
+                                >Newberry</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/forecast-start-here"
+                                >Reading the Forecast</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/forecasts/#/archive"
+                                >Archive</a
+                            >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span
+                            >Observations
+                            <svg class="caret" viewBox="0 0 10 6">
+                                <path
+                                    d="M1 1l4 4 4-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.3"
+                                /></svg
+                        ></span>
+                        <div class="menu">
+                            <a href="https://coavalanche.org/pages/observations"
+                                >View Observations</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/observations/#/form"
+                                >Submit an Observation</a
+                            >
+                            <a href="https://coavalanche.org/pages/weather-map"
+                                >Weather Map</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/weather-tools"
+                                >Weather Tools</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/avalanche-accidents"
+                                >Avalanche Accidents</a
+                            >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span
+                            >Education
+                            <svg class="caret" viewBox="0 0 10 6">
+                                <path
+                                    d="M1 1l4 4 4-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.3"
+                                /></svg
+                        ></span>
+                        <div class="menu">
+                            <a
+                                href="https://coavalanche.org/pages/education-opportunities"
+                                >Avalanche Education</a
+                            >
+                            <a
+                                href="https://coavalanche.org/blogs/news/2026-coac-scholarship"
+                                >Scholarship Opportunity</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/resources-for-avalanche-related-grief-and-loss"
+                                >Grief &amp; Loss Resources</a
+                            >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a href="https://coavalanche.org/pages/events"
+                            >Events</a
+                        >
+                    </div>
+                    <div class="item active">
+                        <span
+                            >Support Us
+                            <svg class="caret" viewBox="0 0 10 6">
+                                <path
+                                    d="M1 1l4 4 4-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.3"
+                                /></svg
+                        ></span>
+                        <div class="menu">
+                            <a
+                                href="https://coavalanche.org/products/coac-membership"
+                                >Become a Member</a
+                            >
+                            <a
+                                href="https://coavalanche.org/products/donate-just-because"
+                                >Donate</a
+                            >
+                            <a
+                                href="https://coavalanche.org/collections/coac-merchandise"
+                                >Shop</a
+                            >
+                            <a
+                                href="https://coavalanche.org/products/scholarship-fundraiser"
+                                >Fund Scholarships</a
+                            >
+                            <a href="https://coavalanche.org/pages/sponsors"
+                                >Sponsors</a
+                            >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <span
+                            >About
+                            <svg class="caret" viewBox="0 0 10 6">
+                                <path
+                                    d="M1 1l4 4 4-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.3"
+                                /></svg
+                        ></span>
+                        <div class="menu">
+                            <a href="https://coavalanche.org/pages/about"
+                                >About COAC</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/board-of-directors"
+                                >Board of Directors</a
+                            >
+                            <a href="https://coavalanche.org/pages/staff"
+                                >Staff</a
+                            >
+                            <a
+                                href="https://coavalanche.org/pages/annual-reports"
+                                >Annual Reports</a
+                            >
+                        </div>
+                    </div>
+                    <div class="item">
+                        <a
+                            class="cta"
+                            href="https://coavalanche.org/products/coac-membership"
+                            >Become a Member</a
+                        >
+                    </div>
+                </nav>
+                <div class="icons">
+                    <a href="https://coavalanche.org/search" aria-label="Search"
+                        ><svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                        >
+                            <circle cx="10.5" cy="10.5" r="6.5" />
+                            <path d="M15.5 15.5L21 21" /></svg
+                    ></a>
+                    <a
+                        class="acct"
+                        href="https://coavalanche.org/account"
+                        aria-label="Log in"
+                        ><svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                        >
+                            <circle cx="12" cy="8" r="4" />
+                            <path
+                                d="M4 21c1-4.5 4.5-6.5 8-6.5s7 2 8 6.5"
+                            /></svg
+                    ></a>
+                    <a href="https://coavalanche.org/cart" aria-label="Cart"
+                        ><svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                        >
+                            <path d="M5 8h14l-1.2 12H6.2L5 8z" />
+                            <path d="M9 8V6.5a3 3 0 016 0V8" /></svg
+                    ></a>
+                </div>
+            </div>
+            <details class="drawer" id="mdrawer">
+                <summary></summary>
+                <div class="drawer-panel">
+                    <details>
+                        <summary>Forecasts</summary>
+                        <a
+                            href="https://coavalanche.org/pages/forecasts/#/central-cascades"
+                            >Central Cascades</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/forecasts/#/newberry"
+                            >Newberry</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/forecast-start-here"
+                            >Reading the Forecast</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/forecasts/#/archive"
+                            >Archive</a
+                        >
+                    </details>
+                    <details>
+                        <summary>Observations</summary>
+                        <a href="https://coavalanche.org/pages/observations"
+                            >View Observations</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/observations/#/form"
+                            >Submit an Observation</a
+                        >
+                        <a href="https://coavalanche.org/pages/weather-map"
+                            >Weather Map</a
+                        >
+                        <a href="https://coavalanche.org/pages/weather-tools"
+                            >Weather Tools</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/avalanche-accidents"
+                            >Avalanche Accidents</a
+                        >
+                    </details>
+                    <details>
+                        <summary>Education</summary>
+                        <a
+                            href="https://coavalanche.org/pages/education-opportunities"
+                            >Avalanche Education</a
+                        >
+                        <a
+                            href="https://coavalanche.org/blogs/news/2026-coac-scholarship"
+                            >Scholarship Opportunity</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/resources-for-avalanche-related-grief-and-loss"
+                            >Grief &amp; Loss Resources</a
+                        >
+                    </details>
+                    <a href="https://coavalanche.org/pages/events">Events</a>
+                    <details open>
+                        <summary>Support Us</summary>
+                        <a
+                            href="https://coavalanche.org/products/coac-membership"
+                            >Become a Member</a
+                        >
+                        <a
+                            href="https://coavalanche.org/products/donate-just-because"
+                            >Donate</a
+                        >
+                        <a
+                            href="https://coavalanche.org/collections/coac-merchandise"
+                            >Shop</a
+                        >
+                        <a
+                            href="https://coavalanche.org/products/scholarship-fundraiser"
+                            >Fund Scholarships</a
+                        >
+                        <a href="https://coavalanche.org/pages/sponsors"
+                            >Sponsors</a
+                        >
+                    </details>
+                    <details>
+                        <summary>About</summary>
+                        <a href="https://coavalanche.org/pages/about"
+                            >About COAC</a
+                        >
+                        <a
+                            href="https://coavalanche.org/pages/board-of-directors"
+                            >Board of Directors</a
+                        >
+                        <a href="https://coavalanche.org/pages/staff">Staff</a>
+                        <a href="https://coavalanche.org/pages/annual-reports"
+                            >Annual Reports</a
+                        >
+                    </details>
+                    <a
+                        class="cta"
+                        href="https://coavalanche.org/products/coac-membership"
+                        >Become a Member</a
+                    >
+                </div>
+            </details>
+        </header>
+        <!-- ===================== END SITE HEADER (MOCKUP ONLY) ===================== -->
+
+        <!-- ===================== PAGE CONTENT: this is the part to build into the template ===================== -->
+
+        <div class="coac-sp">
+            <!-- ============ 1. HERO ============ -->
+            <section class="hero">
+                <div class="wrap">
+                    <p class="eyebrow">Our Sponsors</p>
+                    <h1>
+                        The local businesses that keep the
+                        <span>forecast free.</span>
+                    </h1>
+                    <p>
+                        COAC receives no government funding. Every daily
+                        forecast, weather station and avalanche class is made
+                        possible by our members and these sponsors. When you
+                        ride, shop or eat local, give them some love.
+                    </p>
+                    <div class="btn-row">
+                        <a class="btn btn-primary" href="#become-a-sponsor"
+                            >Become a Sponsor</a
+                        >
+                        <a class="btn btn-ghost" href="#member-perks"
+                            >See Sponsor Benefits</a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 2. IMPACT STATS ============ -->
+            <section class="stats">
+                <div class="wrap">
+                    <div class="stat-grid">
+                        <div class="stat">
+                            <b>151</b
+                            ><span
+                                >days of daily forecasts, Dec 1 to Apr 30</span
+                            >
+                        </div>
+                        <div class="stat">
+                            <b>2</b
+                            ><span
+                                >backcountry weather stations maintained</span
+                            >
+                        </div>
+                        <div class="stat">
+                            <b>38K+</b
+                            ><span>people used our website last season</span>
+                        </div>
+                        <div class="stat">
+                            <b>$0</b
+                            ><span
+                                >in government funding. It's all
+                                community.</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 3. SPONSOR SPOTLIGHT ============ -->
+            <!-- METAOBJECT: show the one sponsor where featured == true (or rotate monthly) -->
+            <section>
+                <div class="wrap">
+                    <div class="spotlight">
+                        <div class="spotlight-logo">
+                            <img
+                                src="https://coavalanche.org/cdn/shop/files/rockytalkie-300x300.jpg?v=1758126961&width=300"
+                                alt="Rocky Talkie"
+                            />
+                        </div>
+                        <div class="spotlight-body">
+                            <p class="eyebrow">Sponsor Spotlight</p>
+                            <h3>Rocky Talkie</h3>
+                            <span class="pill light">Season Sponsor</span>
+                            <blockquote>
+                                "Placeholder: a sentence or two from the sponsor
+                                on why they support avalanche safety in Central
+                                Oregon."
+                            </blockquote>
+                            <a
+                                class="btn btn-dark"
+                                href="https://rockytalkie.com/"
+                                target="_blank"
+                                rel="noopener"
+                                >Visit Rocky Talkie &rarr;</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 4. SEASON SPONSORS BY TIER ============ -->
+            <section style="padding-top: 0">
+                <div class="wrap">
+                    <div class="center">
+                        <p class="eyebrow">2026 / 2027 Season Sponsors</p>
+                        <h2>Thank you for supporting avalanche safety</h2>
+                        <p class="lede">
+                            Tiers are named for the peaks we forecast. The
+                            bigger the commitment, the higher the summit.
+                        </p>
+                    </div>
+
+                    <!-- Three Sisters: METAOBJECT loop where tier == three_sisters. If empty, show the open card. -->
+                    <div class="tier">
+                        <div class="tier-head">
+                            <h3>
+                                <span class="tri">&#9650;</span>Three Sisters
+                                <small>10,358'</small>
+                            </h3>
+                            <span class="pill">$25,000+</span>
+                        </div>
+                        <div class="logo-grid xl">
+                            <a class="open-card" href="#become-a-sponsor">
+                                <b
+                                    >Your logo on every forecast and on our
+                                    forecasters' jackets</b
+                                >
+                                <span
+                                    >Become our Three Sisters sponsor
+                                    &rarr;</span
+                                >
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Broken Top: METAOBJECT loop where tier == broken_top -->
+                    <div class="tier">
+                        <div class="tier-head">
+                            <h3>
+                                <span class="tri">&#9650;</span>Broken Top
+                                <small>9,177'</small>
+                            </h3>
+                            <span class="pill">$10,000 to $24,999</span>
+                        </div>
+                        <div class="logo-grid lg">
+                            <a class="open-card" href="#become-a-sponsor">
+                                <b>Forecast sponsor + title event</b>
+                                <span
+                                    >This spot is open for the season
+                                    &rarr;</span
+                                >
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Paulina Peak: METAOBJECT loop where tier == paulina_peak -->
+                    <div class="tier">
+                        <div class="tier-head">
+                            <h3>
+                                <span class="tri">&#9650;</span>Paulina Peak
+                                <small>7,989'</small>
+                            </h3>
+                            <span class="pill">$2,500 to $9,999</span>
+                        </div>
+                        <div class="logo-grid md">
+                            <a
+                                class="sp-card"
+                                href="https://rockytalkie.com/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/rockytalkie-300x300.jpg?v=1758126961&width=300"
+                                        alt="Rocky Talkie"
+                                    />
+                                </div>
+                                <div class="meta">
+                                    <b>Rocky Talkie</b
+                                    ><span class="go">Visit &rarr;</span>
+                                </div>
+                            </a>
+                            <a
+                                class="sp-card"
+                                href="#"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/NewSun-300x93.jpg?v=1758126598&width=250"
+                                        alt="NewSun Energy"
+                                    />
+                                </div>
+                                <div class="meta">
+                                    <b>NewSun Energy</b
+                                    ><span class="go">Visit &rarr;</span>
+                                </div>
+                            </a>
+                            <a
+                                class="sp-card"
+                                href="https://www.mtbachelor.com/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/MTB_2020-Stacked_Lava_1.png?v=1765399781&width=250"
+                                        alt="Mt. Bachelor"
+                                    />
+                                </div>
+                                <div class="meta">
+                                    <b>Mt. Bachelor</b
+                                    ><span class="go">Visit &rarr;</span>
+                                </div>
+                            </a>
+                            <a
+                                class="sp-card"
+                                href="#"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/import-performance-logo-01-300x128.png?v=1758126640&width=250"
+                                        alt="Import Performance Auto Repair"
+                                    />
+                                </div>
+                                <div class="meta">
+                                    <b>Import Performance</b
+                                    ><span class="go">Visit &rarr;</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tumalo Mountain: METAOBJECT loop where tier == tumalo -->
+                    <div class="tier">
+                        <div class="tier-head">
+                            <h3>
+                                <span class="tri">&#9650;</span>Tumalo Mountain
+                                <small>7,779'</small>
+                            </h3>
+                            <span class="pill">$500 to $2,499</span>
+                        </div>
+                        <div class="logo-grid sm">
+                            <a
+                                class="sp-card"
+                                href="#"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/BES_Logos_Primary-Blue.png?v=1776787034&width=250"
+                                        alt="Blue Elephant Storage"
+                                    />
+                                </div>
+                            </a>
+                            <a
+                                class="sp-card"
+                                href="https://www.onxmaps.com/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/onXBackcountry-logo-black.png?v=1766009267&width=300"
+                                        alt="onX Backcountry"
+                                    />
+                                </div>
+                            </a>
+                            <a
+                                class="sp-card"
+                                href="https://advisors.ubs.com/pacificwealthgroup/Index.htm"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/UBS-logo-1-300x180.png?v=1758126893&width=300"
+                                        alt="UBS Pacific Wealth Group"
+                                    />
+                                </div>
+                            </a>
+                            <a
+                                class="sp-card"
+                                href="https://www.americanavalancheassociation.org/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                <div class="logo">
+                                    <img
+                                        src="https://coavalanche.org/cdn/shop/files/AAA_primary_logo-300x98.png?v=1758126866&width=300"
+                                        alt="American Avalanche Association"
+                                    />
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 5. EVENT SPONSORS ============ -->
+            <!-- METAOBJECT idea: an "event" metaobject (name, date, blurb, event_url, sponsor reference) -->
+            <section class="events">
+                <div class="wrap">
+                    <div class="center">
+                        <p class="eyebrow">Upcoming Events</p>
+                        <h2>Come out and meet our sponsors</h2>
+                        <p class="lede">
+                            Our events are where the community gathers, and our
+                            sponsors make them happen.
+                        </p>
+                    </div>
+                    <div class="event-grid">
+                        <div class="event">
+                            <div class="date">
+                                <span class="d">14</span
+                                ><span class="m">Nov<br />2026</span>
+                            </div>
+                            <div class="body">
+                                <h3>Bend Snow &amp; Avalanche Workshop</h3>
+                                <p>
+                                    A full day of avalanche science and stories
+                                    to kick off the season.
+                                </p>
+                                <div class="presented">
+                                    Presented by<br /><span class="pill open"
+                                        >Sponsorships from $500</span
+                                    >
+                                </div>
+                                <div class="links">
+                                    <a href="/pages/events">Event details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="date">
+                                <span class="d">19</span
+                                ><span class="m">Nov<br />2026</span>
+                            </div>
+                            <div class="body">
+                                <h3>Powderhound</h3>
+                                <p>
+                                    A homegrown winter film festival and raffle
+                                    fundraiser at the Tower Theatre.
+                                </p>
+                                <div class="presented">
+                                    Presented by<br /><span class="pill open"
+                                        >Sponsorships from $500</span
+                                    >
+                                </div>
+                                <div class="links">
+                                    <a href="/pages/events">Get tickets</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="date">
+                                <span class="d">9</span
+                                ><span class="m">Jan<br />2027</span>
+                            </div>
+                            <div class="body">
+                                <h3>Beacon &amp; Eggs</h3>
+                                <p>
+                                    Intro and refresher avalanche rescue
+                                    practice, with breakfast.
+                                </p>
+                                <div class="presented">
+                                    Presented by<br /><span class="pill open"
+                                        >Title sponsor $2,500</span
+                                    >
+                                </div>
+                                <div class="links">
+                                    <a href="/pages/events">Event details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="date">
+                                <span class="d">14</span
+                                ><span class="m">Feb<br />2027</span>
+                            </div>
+                            <div class="body">
+                                <h3>VertFest</h3>
+                                <p>
+                                    Backcountry racing, clinics and a big day on
+                                    the mountain.
+                                </p>
+                                <div class="presented">
+                                    Presented by<br /><span class="pill open"
+                                        >Sponsorships from $500</span
+                                    >
+                                </div>
+                                <div class="links">
+                                    <a href="/pages/events">Event details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 6. MEMBER PERKS ============ -->
+            <!-- METAOBJECT: sponsors where member_perk is not blank. Hide the whole section if none. -->
+            <section id="member-perks">
+                <div class="wrap">
+                    <div class="center">
+                        <p class="eyebrow">Member Perks</p>
+                        <h2>Support the businesses that support you</h2>
+                        <p class="lede">
+                            COAC members get exclusive offers from our sponsors.
+                            Not a member yet? Your membership pays for itself.
+                        </p>
+                    </div>
+                    <div class="perk-grid">
+                        <div class="perk">
+                            <img
+                                src="https://coavalanche.org/cdn/shop/files/rockytalkie-300x300.jpg?v=1758126961&width=300"
+                                alt=""
+                            />
+                            <div>
+                                <b>Rocky Talkie</b
+                                ><span>Placeholder: 15% off radios</span
+                                ><br /><span class="code">Members only</span>
+                            </div>
+                        </div>
+                        <div class="perk">
+                            <img
+                                src="https://coavalanche.org/cdn/shop/files/onXBackcountry-logo-black.png?v=1766009267&width=300"
+                                alt=""
+                            />
+                            <div>
+                                <b>onX Backcountry</b
+                                ><span>Placeholder: discount on Premium</span
+                                ><br /><span class="code">Members only</span>
+                            </div>
+                        </div>
+                        <div class="perk">
+                            <img
+                                src="https://coavalanche.org/cdn/shop/files/MTB_2020-Stacked_Lava_1.png?v=1765399781&width=250"
+                                alt=""
+                            />
+                            <div>
+                                <b>Mt. Bachelor</b
+                                ><span>Placeholder: offer details</span
+                                ><br /><span class="code">Members only</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-row" style="justify-content: center">
+                        <a class="btn btn-outline" href="/pages/membership"
+                            >Become a Member</a
+                        >
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ 7. BECOME A SPONSOR ============ -->
+            <!-- In-kind donors are NOT listed on this page unless paired with cash to reach a season level (per 2026/27 packet). -->
+            <section class="join" id="become-a-sponsor">
+                <div class="wrap">
+                    <div class="center">
+                        <p class="eyebrow" style="color: var(--sky)">
+                            Become a Sponsor
+                        </p>
+                        <h2>Put your name on the mountain</h2>
+                        <p class="lede">
+                            Reach 38,000+ backcountry users, 3,000+ newsletter
+                            subscribers and 13,000+ social followers while
+                            keeping Central Oregon's backcountry safer.
+                        </p>
+                    </div>
+
+                    <div class="level-grid">
+                        <div class="level top">
+                            <h3>Three Sisters</h3>
+                            <div class="elev">10,358'</div>
+                            <div class="price">$25,000+</div>
+                            <ul>
+                                <li>Logo on forecaster jackets</li>
+                                <li>Logo on every forecast</li>
+                                <li>Title sponsor of an event</li>
+                                <li>5 social posts</li>
+                            </ul>
+                        </div>
+                        <div class="level">
+                            <h3>Broken Top</h3>
+                            <div class="elev">9,177'</div>
+                            <div class="price">$10,000+</div>
+                            <ul>
+                                <li>Logo on every forecast</li>
+                                <li>Title sponsor of an event</li>
+                                <li>2 social posts</li>
+                                <li>Homepage + newsletter logo</li>
+                            </ul>
+                        </div>
+                        <div class="level">
+                            <h3>Paulina Peak</h3>
+                            <div class="elev">7,989'</div>
+                            <div class="price">$2,500+</div>
+                            <ul>
+                                <li>Homepage logo</li>
+                                <li>Newsletter logo</li>
+                                <li>1 social post</li>
+                                <li>2 tickets to Bend SAW</li>
+                            </ul>
+                        </div>
+                        <div class="level">
+                            <h3>Tumalo Mountain</h3>
+                            <div class="elev">7,779'</div>
+                            <div class="price">$500+</div>
+                            <ul>
+                                <li>Logo on this page</li>
+                                <li>Mention in Annual Report</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="btn-row" style="justify-content: center">
+                        <a
+                            class="btn btn-primary"
+                            href="https://coavalanche.org/pages/contact"
+                            >Become a Sponsor</a
+                        >
+                        <a class="btn btn-ghost" href="#" download
+                            >Download the Sponsorship Packet (PDF)</a
+                        >
+                    </div>
+                    <div class="inkind-note">
+                        <h3>Have products or services to give?</h3>
+                        <p>
+                            We're grateful for in-kind donations for our raffles
+                            and fundraisers, and all in-kind donors are
+                            recognized in our Annual Report. Pair your donation
+                            with a cash contribution and its wholesale value can
+                            cover up to 50% of a season sponsorship level, with
+                            all the benefits of that level.
+                        </p>
+                    </div>
+                    <p class="contact-line center">
+                        Questions, or want to contribute in a way that doesn't
+                        fit these categories?
+                        <a href="https://coavalanche.org/pages/contact"
+                            >Contact us</a
+                        >
+                        and let us know what you're thinking. We'd love to talk!
+                    </p>
+                    <p class="fine center">
+                        Central Oregon Avalanche Center is a 501(c)(3)
+                        nonprofit. Donations are tax deductible. Tax ID
+                        27-1929412.
+                    </p>
+                </div>
+            </section>
+        </div>
+        <!-- ===================== END PAGE CONTENT ===================== -->
+
+        <!-- =====================================================================
+     SITE FOOTER (MOCKUP ONLY)
+     Your Shopify theme already renders this. Do not paste it into the page.
+     ===================================================================== -->
+        <footer class="theme-ftr">
+            <div class="top">
+                <div class="sub">
+                    <h2>Subscribe to our emails</h2>
+                    <form onsubmit="return false;">
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            aria-label="Email"
+                        />
+                        <button type="submit" aria-label="Subscribe">
+                            <svg
+                                width="16"
+                                height="12"
+                                viewBox="0 0 16 12"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.3"
+                            >
+                                <path d="M0 6h14M9 1l5 5-5 5" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <div class="contact">
+                    <h2>Contact Us</h2>
+                    <p>Central Oregon Avalanche Center</p>
+                    <p>PO Box 655</p>
+                    <p>Bend, OR 97709-0655</p>
+                    <p>
+                        <a href="mailto:info@coavalanche.org"
+                            >info@coavalanche.org</a
+                        >
+                    </p>
+                </div>
+                <div class="social">
+                    <a
+                        href="https://www.facebook.com/CentralOregonAvalanche"
+                        aria-label="Facebook"
+                        ><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://www.instagram.com/coavy/"
+                        aria-label="Instagram"
+                        ><svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                        >
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                fill="currentColor"
+                                stroke="none"
+                            /></svg
+                    ></a>
+                    <a
+                        href="https://www.youtube.com/@CentralOregonAvalancheCenter"
+                        aria-label="YouTube"
+                        ><svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23 7.2a3 3 0 00-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 001 7.2 31 31 0 00.5 12a31 31 0 00.5 4.8 3 3 0 002.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 002.1-2.1 31 31 0 00.5-4.8 31 31 0 00-.5-4.8zM9.7 15.1V8.9l5.8 3.1-5.8 3.1z"
+                            /></svg
+                    ></a>
+                </div>
+            </div>
+            <div class="bottom">
+                <div>
+                    &copy; 2026,
+                    <a href="https://coavalanche.org/"
+                        >Central Oregon Avalanche Center</a
+                    >
+                    <a href="https://www.shopify.com">Powered by Shopify</a>
+                    &nbsp;&middot;&nbsp;
+                    <a href="https://coavalanche.org/policies/privacy-policy"
+                        >Privacy policy</a
+                    >
+                </div>
+            </div>
+        </footer>
+        <!-- ===================== END SITE FOOTER (MOCKUP ONLY) ===================== -->
+    </body>
+</html>
