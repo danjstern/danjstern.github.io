@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Old Growth Mountain Guides">
+<style>@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&amp;family=Josefin+Sans:wght@600&amp;display=swap');</style>
+<g transform="translate(62 14) scale(1.76)">
+<clipPath id="saa"><circle cx="50" cy="50" r="46"/></clipPath>
+<circle cx="50" cy="50" r="49" fill="#1f3a2e"/>
+<g clip-path="url(#saa)">
+  <path d="M-2 82 L20 50 L28 58 L38 44 L50 60 L62 44 L72 56 L80 48 L102 78 V102 H-2 Z" fill="#5b7a5f"/>
+  <path d="M20 50 L15 57 L20 55 L24 58 Z M80 48 L75 55 L80 53 L85 56 Z" fill="#f4f1ea"/>
+  <path d="M50.0 9.0 L44.8 25.2 L48.4 22.0 L39.5 41.5 L43.2 38.2 L34.2 57.8 L37.9 54.5 L29.0 74.0 L71.0 74.0 L62.1 54.5 L65.8 57.8 L56.8 38.2 L60.5 41.5 L51.6 22.0 L55.2 25.2 Z" fill="#f4f1ea"/>
+  <path d="M-2 80 Q50 68 102 80 V102 H-2 Z" fill="#f4f1ea"/>
+  <path d="M26 100 C34 92 58 90 54 84 C51 80 60 77 66 76" fill="none" stroke="#1f3a2e" stroke-width="1.4" stroke-linecap="round"/>
+  <path d="M30 101 C38 94 61 92 57 85 C54 81 62 78.5 68 77.5" fill="none" stroke="#1f3a2e" stroke-width="1.4" stroke-linecap="round"/>
+</g></g>
+<text x="150" y="232" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, 'Times New Roman', serif" font-weight="600" font-size="44" fill="#1b1f1c" textLength="236" lengthAdjust="spacingAndGlyphs">Old Growth</text>
+<text x="150" y="266" text-anchor="middle" font-family="'Josefin Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="14.5" fill="#1f3a2e" textLength="232" lengthAdjust="spacing">MOUNTAIN GUIDES</text>
+<line x1="34" y1="246" x2="266" y2="246" stroke="#c2642c" stroke-width="1.5"/>
+</svg>
