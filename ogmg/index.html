@@ -28,11 +28,26 @@
   .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
 
   header { padding: 36px 0 28px; text-align: center; }
-  .logo-cycle { background: none; border: 0; padding: 0; margin: 0 auto; cursor: pointer; display: block; width: 100%; max-width: 380px; }
+  .logo-cycle { margin: 0 auto; width: 100%; max-width: 380px; }
   .logo-cycle svg { display: block; width: 100%; height: auto; margin: 0 auto; }
   .logo-cycle svg[hidden] { display: none; }
-  .logo-cycle:focus-visible { outline: 3px solid var(--tuff); outline-offset: 6px; border-radius: 8px; }
-  .logo-note { margin: 10px 0 0; font: 600 11px/1.3 "Josefin Sans", system-ui, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .preview-banner {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--forest); color: var(--bg);
+    font: 600 13px/1.4 "Josefin Sans", system-ui, sans-serif;
+    letter-spacing: .04em;
+    text-align: center;
+    padding: 10px 16px;
+  }
+  .preview-banner strong { color: #f2b48a; font-weight: 600; }
+  .preview-banner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 14px; }
+  .next-logo {
+    font: inherit; letter-spacing: inherit; cursor: pointer;
+    background: var(--bg); color: var(--forest);
+    border: 0; border-radius: 999px; padding: 6px 14px;
+  }
+  .next-logo:hover { background: #f2b48a; }
+  .next-logo:focus-visible { outline: 2px solid #f2b48a; outline-offset: 2px; }
 
   .photos {
     display: grid;
@@ -97,9 +112,13 @@
 </style>
 </head>
 <body>
+  <div class="preview-banner">
+    <span>Logo preview: <strong class="logo-note" aria-live="polite">F: Carabiner &amp; Snowflake (1 of 6)</strong></span>
+    <button class="next-logo" type="button">Next logo &rarr;</button>
+  </div>
   <div class="wrap">
     <header>
-      <button class="logo-cycle" type="button" aria-label="Old Growth Mountain Guides logo. Click to see other logo options.">
+      <div class="logo-cycle">
 <svg data-logo="F" data-name="Carabiner & Snowflake" xmlns="http://www.w3.org/2000/svg" viewBox="60 0 340 200" role="img" aria-label="Old Growth Mountain Guides">
 
 <g transform="translate(42 20) scale(1.6)">
@@ -178,8 +197,7 @@
 <line x1="191" y1="116" x2="388" y2="116" stroke="#c2642c" stroke-width="1.5"/>
 <text x="191" y="140" font-family="'Josefin Sans', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif" font-weight="600" font-size="13" fill="#1f3a2e" textLength="197" lengthAdjust="spacing">MOUNTAIN GUIDES</text>
 </svg>
-      </button>
-      <p class="logo-note" aria-live="polite">Logo F &middot; Carabiner &amp; Snowflake &middot; click the logo to try others</p>
+      </div>
     </header>
 
     <section class="photos" aria-label="Photos">
@@ -217,17 +235,17 @@
     </footer>
   </div>
 <script>
-  // Logo preview: click the logo to cycle through the concepts. Remove this (and the hidden SVGs) once a logo is final.
+  // Logo preview: the banner button cycles through the concepts. Remove this, the .preview-banner and the hidden SVGs once a logo is final.
   (function () {
-    var btn = document.querySelector('.logo-cycle');
-    var logos = btn.querySelectorAll('svg');
+    var btn = document.querySelector('.next-logo');
+    var logos = document.querySelectorAll('.logo-cycle svg');
     var note = document.querySelector('.logo-note');
     var i = 0;
     btn.addEventListener('click', function () {
       logos[i].setAttribute('hidden', '');
       i = (i + 1) % logos.length;
       logos[i].removeAttribute('hidden');
-      note.textContent = 'Logo ' + logos[i].dataset.logo + ' \u00b7 ' + logos[i].dataset.name + ' \u00b7 ' + (i + 1) + ' of ' + logos.length;
+      note.textContent = logos[i].dataset.logo + ': ' + logos[i].dataset.name + ' (' + (i + 1) + ' of ' + logos.length + ')';
     });
   })();
 </script>
